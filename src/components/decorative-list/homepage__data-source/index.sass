@@ -1,0 +1,54 @@
+.data-source-svg
+  position: relative
+  // max-width: 470px
+
+  &__item
+    position: absolute
+    left: 21.5%
+    top: 30%
+    width: 24%
+    height: 24%
+    opacity: 0
+    animation: flight 2s linear 0s
+    svg
+      width: 100%
+      
+    
+    &+.data-source-svg__item
+      animation: flight 2s linear 1.5s 
+      left: 24%
+
+      &+.data-source-svg__item
+        animation: finalFlight 2s linear 3s 
+        animation-fill-mode: forwards
+
+
+@keyframes finalFlight 
+  0%
+    top: 30%
+    opacity: 0
+
+  50%
+    top: 0%
+    opacity: 1
+
+  100%
+    top: 0%
+    opacity: 1
+
+@keyframes flight 
+  0%
+    top: 30%
+    opacity: 0
+
+  50%
+    top: 0%
+    opacity: 1
+
+  80%
+    top: 0%
+    opacity: 1
+  
+  100%
+    top: -20%
+    opacity: 0

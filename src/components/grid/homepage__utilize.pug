@@ -1,0 +1,38 @@
+include ./../../layouts/section.pug
+
+-  
+  const data = [
+    {
+      icon: 'icon-camera_icon',
+      text: 'When working with large amounts of data and performing repetitive operations.  '
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'When accurate image-based inspection data analysis and reporting is needed. '
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'When dimensional or volume analysis is needed, especially for buildings or sites that are large or hard-to-reach/measure.  '
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'When you need analysis that goes beyond the visual spectrum, such as Thermal and LiDAR analytics.'
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'When you’re looking to automate a process based on images or video. '
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'When  you’re looking for Engineering-Grade tools and  data analysis at an affordable prices based on our efficiency in developing software. '
+    },
+  ]
+
++section({title: 'When to Utilize<br> InfraLytiks', className: 'grid-section homepage__utilize'})
+  .grid-section__wrapper
+    each item in data
+      .grid-section__item
+        .grid-section__item__wrapper
+          .grid-section__item__header-icon
+            div(class=item.icon)
+          .grid-section__item__text=item.text

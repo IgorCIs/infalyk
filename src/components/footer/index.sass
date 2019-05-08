@@ -1,0 +1,67 @@
+.footer
+  padding: 67px 0 
+  font-size: 14px
+  color: rgba($linkColor, 0.8)
+  font-weight: 500
+  border-top: 1px solid $border-color
+  a
+    color: inherit
+
+  .column
+    flex: 1 0
+
+    &_fullwidth
+      margin-top: 45px
+      width: 100%
+      flex: unset
+      font-size: 12px
+
+    &__title
+      margin-bottom: 23px
+      color: $linkColor
+      font-weight: 600  
+
+    &__list
+      &__item
+        line-height: 34px
+
+    &__subscription
+      &__title
+        line-height: 20px
+
+      &__input
+        margin-top: 5px
+        input
+          background-color: #F1F2F4
+          padding: 15px 24px
+          border: unset
+          border-radius: 8px
+          outline: unset
+          flex: 1 0
+          border-top-right-radius: unset
+          font-size: 12px
+          border-bottom-right-radius: unset
+          &::placeholder
+            font-weight: 500
+            color: #31364F
+
+        
+      &__button
+        width: 120px
+        .btn
+          position: relative
+          left: -3px
+
+    &__copyright
+      flex: 1 0
+  
+    &__disclaimer
+      flex: 2 0
+      // margin-left: -30px
+      justify-content: flex-start
+      
+      &__item
+        margin-left: 30px
+
+        &:nth-child(1)
+          margin-left: 0

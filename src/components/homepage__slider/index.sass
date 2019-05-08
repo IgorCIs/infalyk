@@ -1,0 +1,68 @@
+.homepage__slider
+  font-size: 16px
+  font-weight: 400
+
+  
+  &__wrapper
+    padding-top: 20px
+
+  .section__wrapper
+    // padding-right: 0
+
+  &__buttons
+    display: flex
+    flex-direction: row
+
+  &__button
+    margin-bottom: 24px
+    transition: all .3s
+    border-radius: 50%
+    cursor: pointer
+    polygon
+      transition: all .3s
+    +hover
+      polygon
+        background-color: #313B4F
+        fill: #0DC9A8
+        
+      box-shadow: 0 8px 30px -6px rgba(13,22,27,0.5);
+      
+
+  &__list
+    padding-bottom: 94px
+  
+  &__item
+    position: relative
+    padding-left: 20px
+    padding-right: 20px
+
+    &__wrapper
+      padding-top: 50px
+      padding-bottom: 50px
+      padding-left: 50px
+      padding-right: 35px
+      transition: all .3s
+      border-radius: 8px;
+      border: 2px solid transparent
+
+      +hover
+        box-shadow: 0 8px 30px -6px rgba(13,22,27,0.5);
+        border: 2px solid #638591
+      // +before
+      //   position: absolute
+      //   right: 20px
+      //   bottom: 0
+      //   top: 0
+      //   left: 20px
+      //   opacity: 0
+      //   display: block
+      //   background: black
+      
+      // +hover
+      //   &:before
+      //     opacity: 1
+
+  .slick-arrow
+    display: none!important
+    // padding-right: 77px
+

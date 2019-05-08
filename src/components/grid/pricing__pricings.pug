@@ -1,0 +1,45 @@
+include ./../../layouts/section.pug
+
+-  
+  const data = [
+    {
+      icon: 'icon-camera_icon',
+      text: 'We are a Market Driven Company—we believe in performing to continue to earn your business, so our contracts are not long and binding.  ',
+      headerTitle: 'Market Driven Company'
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'We quote in advance, on a project basis with milestones and we typically get paid upon completion of each milestone, so you don’t have to wait to the end of a project to see what we’ve accomplished for you.',
+      headerTitle: 'Step by step'
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'Our expertise means we can pull from our experience to efficiently create Machine Learning algorithms or appropriate analytics foryour project.',
+      headerTitle: 'Experience'
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'Our clients tell us they were ready to give up on Machine Learning until they found us and we delivered On Time and On Budget.  ',
+      headerTitle: 'Time and Budget'
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'Our clients tell us they were ready to give up on Machine Learning until they found us and we delivered On Time and On Budget.  ',
+      headerTitle: 'Time and Budget'
+    },
+    { 
+      icon: 'icon-camera_icon',
+      text: 'We excel in being very efficient and therefore affordable.',
+      headerTitle: 'We excel'
+    },
+  ]
+
++section({title: 'InfraLytiks<br> pricing', className: 'grid-section pricing__pricings'})
+  .grid-section__wrapper
+    each item in data
+      .grid-section__item
+        .grid-section__item__wrapper
+          .grid-section__item__header-icon
+            div(class=item.icon)
+            .grid-section__item__header-title=item.headerTitle
+          .grid-section__item__text=item.text

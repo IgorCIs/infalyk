@@ -1,0 +1,54 @@
+include ./../../layouts/section.pug
+
+- 
+  const casesData = [
+    {
+      title: 'Leading <br> Engineering Company',
+      text: [
+        'We are the largest survey and mapping company in the U.S. and engaged InfraLytiks on an UAS Aerial Image-Based Machine-Learning initative.',
+        'Their ML models have enabled us to be incredibly efficient working with remotely sensed data sets utilized for inspections. This team is efficient, delivers on time and on budget and we look forward to working with them on future projects.',
+      ],
+      person: {
+        name: 'Aerial Surveyor',
+        position: 'Vice President'
+      }
+    },
+    {
+      title: 'On behalf of EMC Insurance Companies',
+      text: [
+        'We have enjoyed working with you over the past year on the many projects that have been successfully completed by InfraLytiks. Your Machine-Learning applications for both satellite and drone-based images have saved an enormous amount of time classifying buildings, identifying defects and generating PDF reports for our customers.',
+
+        'The use of applications and systems, instead of the traditional manual methods, have allowed us to greatly improve the efficiency of certain operations via automation. We find this partnership to be very beneficial and look forward to building new applications using your team!',
+
+        '<b> Note: </b> We typically assume that anyone talking about machine learning can actually deliver about 25% of what they claim and 75% is what they hope to be able to do.  But you guys really deliver the 100%! '
+      ],
+      person: {
+        name: 'Ian Asplund',
+        position: 'SVP—Chief Analytics Officer, EMC Insurance Companies'
+      }
+    }
+  ]
+
++section({ title: 'Testimonials about<br>Infralytiks ', className: 'article-column' })
+  .article-column__wrapper
+    each item in casesData 
+      .article-column__item
+        .article-column__item__title
+          .title_dark.title!=item.title
+
+        .article-column__item__content
+          .article-column__item__text
+            each i in item.text
+              p!=i
+              
+            - if (item.person)
+              .article-column__item__person
+                .article-column__item__person__name!=item.person.name
+                .article-column__item__person__position!=item.person.position
+
+          - if (item.img)
+            .article-column__item__image
+              img(src=item.img)
+
+
+          

@@ -1,0 +1,20 @@
+include ./../../layouts/section.pug
+
+- 
+  const sliderData = [
+    'Each data collection method has strengths and weaknesses.  InfraLytiks team of engineers has  done the research to be able to provide recommendations based on your particular needs and data usage.  ',
+    'Clients are encouraged to collect their own data or InfraLytiks can arrange for data collection through one of our networks of pilots.  We do everything we can to keep the process efficient for our clients.  ',
+    'Our custom machine learning and data analytics are used primarily to process huge amounts of data in order to pull out the characteristics relevant to each particular client—image-based and text-based.',
+  ]
+
+
++section({ sliderButtons: true, className: 'homepage__slider', color: 'dark',})
+  .homepage__slider__wrapper
+    .homepage__slider__list#homepage-slider
+      each item in sliderData
+        .homepage__slider__item
+          .homepage__slider__item__wrapper
+            p=item
+        .homepage__slider__item
+          .homepage__slider__item__wrapper
+            p=item

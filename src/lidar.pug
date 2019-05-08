@@ -1,0 +1,25 @@
+extends ./layouts/master
+
+block title
+  title Infalytiks - Lidar now
+
+block header
+  .header.header-light.sticky
+    .header__wrapper.wrapper
+      a(href="./").header__logo
+        .header__logo__img
+          include ./assets/images/logo.svg
+
+      nav.header__nav
+        .header__nav__list
+        each item in require('./pagesData.js').default
+          .header__nav__item
+            .header__nav__link
+              a(href=item.href)=item.text
+
+      .header__button
+        a(href="#").heaeder__button__link.btn.btn_color_grey get in touch
+
+block content
+  main.lidar
+    include components/banner/lidar__banner

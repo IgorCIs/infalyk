@@ -1,0 +1,50 @@
+.header
+  padding: 20px 20px 20px 60px
+  position: fixed
+  width: 100%
+  z-index: 20
+  left: 0
+  top: -90px
+  background: $white
+  transition: all .6s
+
+  &.sticky
+    top: 0
+
+  
+  &__logo
+    display: flex
+    align-items: center
+
+  &__nav
+    flex: 1 0
+    padding: 0 10px
+    display: flex
+    font-size: 14px
+    justify-content: flex-end
+    align-items: center
+
+    &__list
+      display: flex
+      margin-left: -28px
+
+    &__item
+      margin-left: 28px
+
+    &__link 
+      font-weight: 600
+      color: $linkColor
+
+  &__button
+    margin-left: 48px
+
+  &-light
+    background: $dark
+    .header
+      &__logo
+        svg
+          path
+            fill: #fff
+
+    a
+      color: $whiteFont

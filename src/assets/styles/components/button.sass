@@ -1,0 +1,67 @@
+.btn
+  padding: 17px 27px
+  border-radius: 8px  
+  font-size: 12px
+  text-transform: uppercase
+  justify-content: center
+  align-items: center
+  display: flex
+  position: relative
+  cursor: pointer
+  text-align: center
+  transition: all .3s
+  &:before
+    transition: all .3s
+
+  &_color
+    &_grey
+      background: linear-gradient(135deg, #79A3AA 0%, #2A354E 100%)
+      color: $whiteFont
+      box-shadow: 0 8px 20px -6px rgba(101,131,148,0.6);
+      +before
+        left: 0
+        right: 0
+        bottom: 0
+        top: 0
+        border: 2px solid #9DB9C0
+        position: absolute
+        border-radius: 8px  
+
+      +hover
+        box-shadow: 0 12px 20px -6px rgba(0,0,0,0.14)
+        background: $white
+        color: $dark
+        &:before
+          right: 3px
+          top: 3px
+          bottom: 3px
+          left: 3px        
+          opacity: 0.1
+          border: 1px solid #313B4F;
+
+    &_white
+      box-shadow: 0 12px 20px -6px rgba(0,0,0,0.14)
+      background: $white
+      +before
+        opacity: 0.1
+        border: 1px solid #313B4F;
+        position: absolute
+        right: 3px
+        top: 3px
+        bottom: 3px
+        left: 3px        
+        border-radius: 8px 
+  
+
+      &:not(.btn_nohover) 
+        +hover
+          box-shadow: 0 8px 20px -6px rgba(101,131,148,0.6);
+          background: linear-gradient(135deg, #79A3AA 0%, #2A354E 100%)
+          color: $whiteFont
+          &:before
+            left: 0
+            top: 0
+            border: 2px solid #9DB9C0
+            opacity: 1
+            bottom: 0
+            right: 0

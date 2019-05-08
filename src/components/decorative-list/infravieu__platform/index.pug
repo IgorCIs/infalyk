@@ -1,0 +1,73 @@
+include ./../../../layouts/section.pug
+
+- 
+  const dataPlatform = [
+    {
+      title: 'Advanced Data Visualization',
+    },
+    {
+      title: 'Engineering Data Manipulation Tools',
+    },
+    {
+      title: 'Custom AI & ML based Data Analytics',
+    },
+    {
+      title: 'View & Manipulate Multiply Data Types ',
+    },
+    {
+      title: 'Used by Fortune 500 Insurance Companies',
+    },
+    {
+      title: 'Clients may license, white-label or subscribe to InfraVIEU',
+    },
+    {
+      title: 'Cross Platform Application',
+    },
+  ]
+
+  const dataOverview = [
+    {
+      title: 'Currently being used by Fortune 500 Insurance Companies',
+    },
+    {
+      title: 'View & Manipulate Multiple Data Types:', 
+      list: [
+        '3D Models – HD, Thermal & LiDAR',
+        'Orthomosaic Map View – HD, Thermal & Digital Elevation Models',
+        'HD Image Viewer & Comparison',
+        'ML Learning Algorithms – Defect & Object Detection',
+        'Proprietary Thermal Image Viewer',
+        'Analysis Reports in PDF Format ',
+        'Fully Automated Back-End Data Processing on Cloud Servers'
+      ]
+    }
+  ]
+
++section({ title: 'infravieu<br>platform', className: 'decorative-list infravieu__platform', color: 'dark' })
+  .decorative-list__wrapper.wrapper
+    .decorative-list__text
+      h2.decorative-list__title InfaVIEU
+      ul.decorative-list__list.list
+        each item in dataPlatform
+          li.list__item!=item.title
+
+    .decorative-list__image
+      include ./infravieu.svg
+
++section({ className: 'decorative-list decorative-list_reverse infravieu__overview', color: 'dark' })
+  .decorative-list__wrapper.wrapper
+    .decorative-list__text
+      h2.decorative-list__title Platform Overview &<br>Capabilities
+      ul.decorative-list__list.list
+        each item in dataOverview
+          - if (item.list)
+            li.list__item.list__item_has-sublist!=item.title
+              ul.list__sublist
+                each subitem in item.list
+                  li.list__item!=subitem
+
+          - else 
+            li.list__item!=item.title
+
+    .decorative-list__image
+      include ./overview.svg

@@ -1,0 +1,137 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('./../../fonts/icomoon/icomoon.eot?fn9ciy');
+  src:  url('./../../fonts/icomoon/icomoon.eot?fn9ciy#iefix') format('embedded-opentype'),
+    url('./../../fonts/icomoon/icomoon.ttf?fn9ciy') format('truetype'),
+    url('./../../fonts/icomoon/icomoon.woff?fn9ciy') format('woff'),
+    url('./../../fonts/icomoon/icomoon.svg?fn9ciy#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-oil-gas_icon:before {
+  content: "\e900";
+}
+.icon-bridges_icon:before {
+  content: "\e901";
+}
+.icon-turbines_icon:before {
+  content: "\e902";
+}
+.icon-Infrastructure_icon:before {
+  content: "\e903";
+}
+.icon-smart-cities_icon:before {
+  content: "\e904";
+}
+.icon-solar_icon:before {
+  content: "\e905";
+}
+.icon-settings_icon:before {
+  content: "\e906";
+}
+.icon-data_icon:before {
+  content: "\e907";
+}
+.icon-medal_icon:before {
+  content: "\e908";
+}
+.icon-data-processing_icon:before {
+  content: "\e909";
+}
+.icon-satellite_icon:before {
+  content: "\e90a";
+}
+.icon-plane_icon:before {
+  content: "\e90b";
+}
+.icon-drone_icon:before {
+  content: "\e90c";
+}
+.icon-car_icon:before {
+  content: "\e90d";
+}
+.icon-step_icon:before {
+  content: "\e90e";
+}
+.icon-data-experience_icon:before {
+  content: "\e90f";
+}
+.icon-data-collection_icon:before {
+  content: "\e910";
+}
+.icon-data-analytics-_icon:before {
+  content: "\e911";
+}
+.icon-data-visualization_icon:before {
+  content: "\e912";
+}
+.icon-users_icon:before {
+  content: "\e913";
+}
+.icon-document_icon:before {
+  content: "\e914";
+}
+.icon-data-cloud_icon:before {
+  content: "\e915";
+}
+.icon-process_icon:before {
+  content: "\e916";
+}
+.icon-data-alignment_icon:before {
+  content: "\e917";
+}
+.icon-mobile-platforms_icon:before {
+  content: "\e918";
+}
+.icon-detection_icon:before {
+  content: "\e919";
+}
+.icon-structure_icon:before {
+  content: "\e91a";
+}
+.icon-ruler_icon:before {
+  content: "\e91b";
+}
+.icon-d_icon:before {
+  content: "\e91c";
+}
+.icon-map_icon:before {
+  content: "\e91d";
+}
+.icon-lidar_icon:before {
+  content: "\e91e";
+}
+.icon-camera_icon:before {
+  content: "\e91f";
+}
+.icon-user_icon:before {
+  content: "\e920";
+}
+.icon-image-based_icon:before {
+  content: "\e921";
+}
+.icon-buildings_icon:before {
+  content: "\e922";
+}
+.icon-Combined-Shape:before {
+  content: "\e923";
+}
+.icon-money_icon:before {
+  content: "\e924";
+}

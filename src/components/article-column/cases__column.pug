@@ -1,0 +1,61 @@
+
+include ./../../layouts/section.pug
+
+- 
+  const casesData = [
+    {
+      title: 'Wind Farm <br> Survey Case <br> Study',
+      text: [
+        '<b> Our client needed </b> to be able to identify buildings, water, roads and trees in order to plan the location of wind turbines using proper setbacks.  Their process was to capture video from an aerial view and then manually identify the items by looking through the footage.',
+        '<b> The InfraLytiks Solution </b> was to utilize machine learning to automatically identify the elements.  We trained the machine using HD images and then used the software on a 25,000 acre parcel of land with a 2-hour turnaround time.  We were able to circle the elements, label with color codes and geotag every element for later development work.  The area of land we can now cover is nearly limitless.  '
+      ],
+      img: require('./assets/images/cases/1.jpg')
+    },
+    {
+      title: 'Power Pole <br> Inspection Case <br> Study',
+      text: [
+        '<b> Our client needed </b> to identify and classify power transmission poles.  Their process was to fly the line of towers and then manually select an image for each pole for the file.',
+        '<b> The InfraLytiks Solution </b> was to use the images they had captured to execute a machine learning program to automatically identify and classify the transmission poles, crop the photos to the proper proportions and geo-tag each pole.  We were then able to use hundreds of miles of images and complete a report in just a matter of hours with high accuracy.  '
+      ],
+      img: require('./assets/images/cases/2.jpg')
+    },
+    {
+      title: 'Commercial Roof Moisture Case Study',
+      text: [
+        '<b> Our client needed </b> to know if commercial roofs had water under the roof membrane.  Their process was to walk the roof looking for visual cues, or find leaks in the ceiling indoors. ',
+        '<b> The InfraLytiks Solution </b> was to use a drone equipped with a highly accurate IR Thermal Camera/HD cameral to fly the roof at sunset.  The thermal sensor was able to detect thermal anomalies indicating likely water penetration.  The roofing client then drilled core samples to verify the presence of moisture and allow us to calibrate for actual moisture vs. false positives. ' 
+      ],
+      img: require('./assets/images/cases/3.jpg')
+    },
+    {
+      title: 'Commercial Building Triage Case Study',
+      text: [
+        '<b> Our client needed </b> to have record of the size, slope and shape of the roofs on commercial buildings.  Their process was to either walk the roofs or fly a drone to capture images, which was an expensive proposition over thousands of roofs.  ',
+        '<b> The InfraLytiks Solution </b> was to use satellite imagery as the image source for Machine Learning to identify, classify and measure commercial roofs.  We created Machine Learning software to analyze up to 1,000 roofs at a time, use geo-tags to identify specific buildings of interest, and gain the ability to triage which roofs may warrant a closer inspection—making the entire process far more efficient. '
+      ],
+      img: require('./assets/images/cases/4.jpg')
+    },
+    {
+      title: 'Commercial Roof Report Case Study',
+      text: [
+        '<b> Our client needed </b> reports on commercial buildings including dimensions, defects, health rating, and objects generated automatically after each drone flight with any of their drone pilots.',
+        '<b> The InfraLytiks Solution </b> was to train multiple machine learning models to extract exact roofing dimensions, detect over a dozen defects and objects, assign dynamic priority variables to each defect, customize the report based on additional criteria, and deliver all of the data in a web platform and downloadable PDF.'
+      ],
+      img: require('./assets/images/cases/5.jpg')
+    },
+  ]
+
++section({ title: 'Case<br>studies', className: 'cases__column article-column' })
+  .article-column__wrapper
+    each item in casesData 
+      .article-column__item
+        .article-column__item__title
+          .title_dark.title!=item.title
+
+        .article-column__item__content
+          .article-column__item__text
+            each i in item.text
+              p!=i
+
+          .article-column__item__image
+            img(src=item.img)

@@ -1,0 +1,22 @@
+mixin section({ className, title, color, sliderButtons, bg })
+  .section(class=`${className} ${color ? 'section_dark' : '' }`)
+    .section__bg!=bg
+    .aside
+      - if (title)
+        h7!=title
+
+      - if (sliderButtons)
+        .homepage__slider__buttons
+          .homepage__slider__button.homepage__slider__button--prev
+            include ./../assets/images/btn_right.svg
+          .homepage__slider__button.homepage__slider__button--next 
+            include ./../assets/images/btn_left.svg
+
+
+    .section__wrapper.container 
+      div.line
+      div.line
+      div.line
+
+      .section__contnent
+        block 

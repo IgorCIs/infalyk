@@ -1,0 +1,141 @@
+.container
+  // padding-right: 77px
+  margin-right: auto 
+  margin-left: auto 
+  position: relative
+
+  &_fullsize
+    padding-right: 77px
+    padding-left: 144px
+
+  @for $i from length($containerWidths) through 1
+    @media(min-width: nth($mediaList, $i))
+      max-width: calc(#{nth($containerWidths, $i)} - (145px / 2))
+
+  +media($media-xs)
+    padding: 0 30px
+
+.wrapper
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+.color-white
+  color: $whiteFont
+  
+.section
+  position: relative
+  width: calc(100vw - (100vw - 100%))
+  // width: 100vw
+  display: inline-flex
+  min-width: 0
+  margin-top: -1px
+
+  &__bg
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+
+  &__wrapper
+    position: relative
+    min-width: 0
+    width: 100%
+    z-index: 10
+
+  &__contnent
+    position: relative
+    
+    
+  &_dark
+    background: $backgroundDark
+    color: $whiteFont
+    .aside
+      &>*
+        color: $whiteFont
+      
+    .line
+      background: $background-color_light
+    
+.line
+  left: 0
+  bottom: 0
+  top: 0
+  position: absolute
+  background-color: rgba(#000, 0.05)
+  z-index: 11
+  width: 1px
+  &:nth-child(2)
+    left: calc(#{percentage(4/12)})
+
+  &:nth-child(3)
+    left: calc(#{percentage(8/12)})
+
+.aside
+  min-width: 145px
+  padding: 60px 0
+  text-transform: uppercase
+  justify-content: center
+  align-items: flex-start
+  display: flex
+  font-family: $ibm
+  &>*
+    letter-spacing: 1.08px
+    line-height: 16px
+    color: #313B4F
+    text-align: right
+    writing-mode: tb-rl
+    transform: rotate(180deg)
+
+
+.title
+  color: $whiteFont	
+  font-size: 36px	
+  font-weight: bold	
+  letter-spacing: -0.13px	
+  line-height: 48px
+  &_dark
+    color: #313B4F;
+
+.list
+  padding: 0
+  &__item
+    display: flex
+    align-items: flex-start
+    position: relative
+    list-style: none
+    padding: 0
+    font-size: 16px
+    font-weight: 400
+    margin-top: 16px
+    +before(inline-block)
+      min-height: 10px
+      margin-top: 4px
+      min-width: 10px
+      background: $green
+      margin-right: 20px
+      transform: rotate(45deg)
+
+    &_has-sublist
+      flex-wrap: wrap
+
+  &__sublist
+    width: 100%
+    padding-left: 35px
+
+    li
+      &:before
+        opacity: 0.15
+
+  &_dark
+    .list__item
+      &:before
+        background: rgba($backgroundDark, 0.15)
+
+
+.grey-text
+  background: linear-gradient(135deg, #79A3AA 0%, #2A354E 100%);
+  color: $whiteFont
+  padding: 0 4px
+  display: inline-block

@@ -1,0 +1,42 @@
+include ./../../../layouts/section.pug
+
+- 
+  const dataFeatures = [
+    {
+      title: 'Login',
+    },
+    {
+      title: '3D Annotation tool',
+    },
+    {
+      title: '3D Distance Measurement Tools',
+    },
+    {
+      title: '3D Area & Volumetric Measurement Tool',
+    },
+    {
+      title: '3D Model Cropping Tool',
+    },
+    {
+      title: 'InfraVIEU Thermal Viewer',
+    },
+    {
+      title: 'Image Comparison Tool',
+    },
+    {
+      title: 'AR Models On 3D Map',
+    },
+  ]
+
++section({ title: 'Key<br>Features', className: 'decorative-list infravieu__features', color: 'dark' })
+  .decorative-list__wrapper.wrapper
+    .decorative-list__text
+      ul.decorative-list__list.list#infravieu-features-titles
+        each item in dataFeatures
+          li.list__item!=item.title
+
+    .decorative-list__image 
+      .decorative-list__slider#infravieu-features
+        each i in [1,2,3,4,5,6,7,8]
+          .decorative-list__slider__item
+            img(src=require('./assets/images/cases/1.jpg'), alt="")

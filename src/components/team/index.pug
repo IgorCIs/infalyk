@@ -1,0 +1,38 @@
+- 
+  const data = [
+    {
+      name: 'Kevin Prendergast',
+      position: 'president  & cmo',
+      text: 'Founded business development and marketing consulting firm.30 years of CMO/CSO experience in insurance & software industries.Experience in managing client accounts & relations.'
+    },
+    {
+      name: 'Akash Vidyadharan',
+      position: 'CTO & SOFTWARE DEVELOPER',
+      text: 'Experience in product design, development and management. Background in Aerospace and Systems Engineering. BS, MS in Aerospace Engineering and M.Eng. in Systems Engineering'
+    },
+    {
+      name: 'Tyler Carter',
+      position: 'COO & CFO',
+      text: 'Experience in business development and management. Background in Mechanical Engineering and Business. BS in Mechanical Engineering & MBA'
+    },
+  ]
+
+include ./../../layouts/section.pug
+
++section({ title: 'Our<br>team', className: 'grid-section team' })
+  .team__wrapper.wrapper
+    .team__header.wrapper
+      .team__title
+        .title Team of highly skilled engineers and scientists
+
+      .team__descr
+        p InfraLytiks currently has a team of highly skilled engineers and scientists, with degrees ranging from Aerospace and Mechanical Engineering to Computer Science and Systems Engineering, including a number of advanced degrees as well as an experienced management team.
+
+    
+    .team__list 
+      each item in data
+        .team__item
+          .team__item__wrapper
+            .team__item__name!=item.name
+            .team__item__position!=item.position
+            .team__item__text!=item.text

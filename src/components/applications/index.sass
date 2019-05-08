@@ -1,0 +1,97 @@
+//grid rework
+.applications
+  background-color: #F1F2F4;
+  display: flex
+  color: $backgroundDark
+  &__wrapper
+    padding: 20px 0
+
+  &__item
+    flex: 1 0
+    padding: 0 20px
+    
+    &__wrapper    
+      display: grid
+      grid-template-rows: auto auto auto auto auto
+      flex-direction: column
+
+    &__image
+      margin-bottom: 20px
+
+    &__wrapper
+      padding: 62px 40px 54px
+      border-radius: 8px
+
+    &__title
+      $lineHeight: 30px
+      color: #313B4F
+      font-size: 24px
+      font-weight: bold
+      line-height: $lineHeight
+
+    &__descr
+      padding-top: 5px
+      font-size: 15px
+      a
+        margin: 16px 0 0
+        color: inherit
+        display: block
+        
+      p
+        font-size: 16px
+        line-height: 26px
+        margin-top: 16px
+
+    &__buttons
+      display: flex
+      justify-content: space-between
+      max-width: 310px
+      padding-top: 20px
+      .btn
+        display: inline-block
+        width: 140px
+        
+    &__also
+      display: flex
+      margin-top: 24px
+      flex-direction: column
+      &__title
+        font-weight: 400
+        font-size: 14px
+
+      &__list
+        margin-top: 8px
+        display: flex
+        justify-content: space-between
+        max-width: 220px 
+        align-items: center
+
+      &__item
+        transition: all .3s        
+        svg
+          path
+            transition: all .3s
+            
+        display: flex 
+        +hover
+          color: $green
+          svg
+            path
+              transition: all .3s
+              fill: $green
+
+        .text
+          margin-left: 8px
+          font-weight: 600
+          align-items: center
+          display: flex
+        
+
+    &.active
+      .applications__item__wrapper
+        box-shadow: 0 12px 20px -5px rgba(0,0,0,0.15);
+        background-color: $white  
+    
+    &:last-child
+      .applications__item__wrapper
+        padding-right: 0

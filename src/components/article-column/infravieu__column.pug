@@ -1,0 +1,44 @@
+
+include ./../../layouts/section.pug
+
+- 
+  const casesData = [
+    {
+      title: 'Automated<br>defect & anomaly detection',
+      text: [
+        'InfraLytiks uses proprietary machine learning to build defect-detection and anomaly-detection models based on sample inputs, which then allows our systems to recognize various types of defects and conditions of importance to our clients.',
+        'InfraLytiks algorithms can identify a wide range of defects and anomalies automatically and then classify them using proprietary machine learning algorithms. Defect detection can be customized & trained for each client to best fit their needs & requirements.',
+      ],
+      img: require('./assets/images/cases/4.jpg')
+    },
+    {
+      title: 'Machine learning & AI algorithms',
+      text: [
+        'Drones can collect massive amounts of data and machine learning algorithms are the only practical way to pull out the information of interest and present a simplified visual presentation and report of findings based on the data. We regularly conduct beta tests for prospective client to demonstrate how machine learning is applied first-hand.', 
+        `<b> At InfraLytiks, we use proprietary algorithms for: </b>
+         <ul class='list list_dark'>  
+          <li class=list__item> Defect & Anomaly Detection </li>
+          <li class=list__item> Building & Structure Classification </li>
+          <li class=list__item> Automated measurements of structures </li>
+         </ul>  
+        `,
+      ],
+      img: require('./assets/images/cases/4.jpg')
+    }
+  ]
+
++section({ title: 'InfraVieu<br>Platform', className: 'article-column infravieu__column' })
+  .article-column__wrapper
+    each item in casesData 
+      .article-column__item
+        .article-column__item__title
+          .title_dark.title!=item.title
+
+        .article-column__item__content
+          .article-column__item__text
+            each i in item.text
+              p!=i
+
+          - if (item.img)
+            .article-column__item__image
+              img(src=item.img)

@@ -1,0 +1,40 @@
+@import 'variables'
+
+@mixin before($display: block)
+  &:before
+    content: ""
+    display: $display
+    @content
+
+@mixin after($display: block)
+  &:after
+    content: ""
+    display: $display
+    @content
+
+@mixin hover
+  @media (hover), (min-width:0\0), (min--moz-device-pixel-ratio:0)
+    @media (min-width: $media_md)
+      &:hover
+        @content
+
+@mixin tap
+  &:active, &:target
+      @content
+
+@mixin media($width)
+  @media(max-width: $width)
+    @content
+    
+@mixin media-up($width)
+  @media(min-width: $width)
+    @content
+            
+@mixin make-containerSide($side, $plus: 0)
+  @for $i from length($containerWidths) through 1
+    @media(min-width: nth($mediaList, $i))
+      #{$side}: calc((100vw - #{nth($containerWidths, $i)}) / 2 + #{$containerPadding} + #{$plus + px})   
+      
+@function em($pixels, $context: 22) 
+  @return #{$pixels/$context}em
+

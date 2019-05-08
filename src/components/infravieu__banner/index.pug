@@ -1,0 +1,16 @@
+include ./../../layouts/section.pug
+
++section({title: '', className: 'grid-section infravieu__banner'})
+  .infravieu__banner__wrapper.wrapper
+    .infravieu__banner__image
+      img(src=require('./assets/images/infravieu__logo.svg'))
+
+    .infravieu__banner__title 
+      h1 Our Proprietary Data Analytics<br>and Visualization Platform    
+
+    .infravieu__banner__app-links 
+      include ./../app-links/index.pug
+
+    .infravieu__banner__mokup
+      .infravieu__banner__mokup__holder
+        //- include ./../../assets/images/macbook-mokup.svg

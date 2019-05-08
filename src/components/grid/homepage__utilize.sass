@@ -1,0 +1,33 @@
+.homepage__utilize
+  .grid-section
+    &__wrapper
+      padding: 0
+
+    &__item
+      padding: 63px 20px 35px 70px
+      position: relative;
+
+      +before
+        right: 0
+        bottom: 0
+        top: 0
+        left: 0
+        z-index: 1
+        opacity: 0
+        position: absolute;
+        transition: all .3s
+        background: linear-gradient(135deg, #6D929C 0%, #2A354E 100%);
+        box-shadow: 0 8px 30px -6px rgba(13,22,27,0.5);
+      
+      +hover
+        &:before
+          opacity: 1
+          
+        color: $whiteFont
+        transition: all .3s
+
+      &__wrapper
+        z-index: 2
+        position: relative
+        max-width: 314px
+        justify-content: flex-start

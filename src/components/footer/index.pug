@@ -1,0 +1,34 @@
+.footer
+  .container_fullsize
+    .wrapper
+      .column
+        .column__title Quick Links
+        .column__list
+          each item in ['InfaVieu', 'InfaDrone', 'Drone scanning may include', 'Primary applications']
+            .column__list__item
+              a(href="#")=item
+  
+      .column
+        .column__title Contact Us
+        .column__list
+          each item in ['InfraLytiks', 'Phone: +1 801-810-2920', 'Email: Contact@InfraLytiks.com']
+            .column__list__item
+              a(href="#")=item
+
+      .column
+        .column__title Newsletter
+        .column__subscription
+          .column__subscription__title 
+            p If you would like to receive updates about new offers and discounts, sign up below
+
+          .column__subscription__input.wrapper
+            input(type="text" placeholder="Email Address")
+            .column__subscription__button
+              .btn.btn_color_grey send
+
+      .column_fullwidth.wrapper
+        .column__copyright ©InfraDrone, LLC dba InfraLytiks. All rights reserved.
+        .column__disclaimer.wrapper
+          each item in ['Disclaimer', 'Terms of Use', 'Privacy Policy']
+            .column__disclaimer__item
+              a(href="#")=item
