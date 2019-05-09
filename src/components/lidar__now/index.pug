@@ -1,0 +1,18 @@
+include ./../../layouts/section.pug
+
+- 
+  const lidarNowData = [
+    'Utilization of our software algorithms for Ouster LiDAR eliminates the requirement forexpensive hardware to correct LiDAR output--uses our proprietary algorithm instead.',
+    'On a much larger scale, consider licensing our software for resale to the international LiDAR market -opportunity to offer a much lower overall cost for operational LiDAR and still make substantial margins. ',
+    'Use our LiDAR software to substantially reduce the cost of LiDAR for your company. On a much larger scale, consider licensing our software for resale to the international',
+  ]
+
+
++section({ title: 'lidar<br>now', className: 'lidar__now', color: 'dark' })
+  .lidar__now__wrapper
+    .lidar__now__list.wrapper
+      each item in lidarNowData
+        .lidar__now__item
+          .lidar__now__item__wrapper
+            p=item
+

@@ -1,5 +1,5 @@
-mixin section({ className, title, color, sliderButtons, bg })
-  .section(class=`${className} ${color ? 'section_dark' : '' }`)
+mixin section({ bgcontainer, container, className, title, color, sliderButtons, bg })
+  .section(class=`${className} ${color ? `section_${color}` : '' }`)
     .section__bg!=bg
     .aside
       - if (title)
@@ -13,10 +13,17 @@ mixin section({ className, title, color, sliderButtons, bg })
             include ./../assets/images/btn_left.svg
 
 
-    .section__wrapper.container 
-      div.line
-      div.line
-      div.line
+    .section__wrapper(class=`${container ? 'container_'+container : 'container' }`)
+      - if (bgcontainer)
+        .bg-container
+          div.line
+          div.line
+          div.line
+
+      - else 
+          div.line
+          div.line
+          div.line
 
       .section__contnent
         block 

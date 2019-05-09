@@ -1,0 +1,52 @@
+include ./../../layouts/section.pug
+
+-  
+  const data = [
+    {
+      icon: 'icon-camera_icon',
+      headerTitle: 'Renewable Energy Analytics',
+      list: [
+        'Land surveys up to thousands of acres',
+        'Automatically identify buildings, roads, water, trees and more with setback requirements.',
+        'Identify where you can and cannot put wind turbines',
+        'Optimize turbine placement based on wind and other environmental conditions',
+        'Analyze turbine gearbox using sensors to detect potential failure',
+      ]
+    },
+    {
+      icon: 'icon-camera_icon',
+      headerTitle: 'Utility structure inspection',
+      list: [
+        'Automated power line and tower inspection; identification of power pole types and locations',
+        'Automated inspections of power generation facilities',
+        'Automated tower component inspection for damage',
+        'Automated hot-spot detection',
+        'Automated identification and inspection of towers',
+        'Identification and site surveys for added towers ',
+      ]
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'Our expertise means we can pull from our experience to efficiently create Machine Learning algorithms or appropriate analytics foryour project.',
+      headerTitle: 'Experience',
+      list: [
+        'Automated image-based mapping and surveying',
+        'Automated defect and damage identification of critical infrastructure',
+        'Automated dimensions, elevation and volume',
+        'Construction site monitoring and inspection',
+      ]
+    },
+  ]
+
++section({title: 'PRIMARY<br>APPLICATIONS', className: 'grid-section relevant__primary pricing__pricings'})
+  .grid-section__wrapper
+    each item in data
+      .grid-section__item
+        .grid-section__item__wrapper
+          .grid-section__item__header-icon
+            div(class=item.icon)
+            .grid-section__item__header-title(data-same='relevant-grid-title')=item.headerTitle
+          .grid-section__item__text
+            .list.list_dark
+              each i in item.list
+                .list__item=i

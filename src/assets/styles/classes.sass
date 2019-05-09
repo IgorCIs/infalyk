@@ -8,12 +8,23 @@
     padding-right: 77px
     padding-left: 144px
 
+  &_left
+    +make-containerSide(margin-left, -145 / 4 - 9)
+
   @for $i from length($containerWidths) through 1
     @media(min-width: nth($mediaList, $i))
       max-width: calc(#{nth($containerWidths, $i)} - (145px / 2))
 
   +media($media-xs)
     padding: 0 30px
+
+.bg-container
+  @extend .container
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  bottom: 0
 
 .wrapper
   display: flex
@@ -47,13 +58,14 @@
   &__contnent
     position: relative
     
+  &_grey
+    background: $grey
     
   &_dark
     background: $backgroundDark
     color: $whiteFont
     .aside
-      &>*
-        color: $whiteFont
+      color: $whiteFont
       
     .line
       background: $background-color_light
@@ -79,11 +91,12 @@
   justify-content: center
   align-items: flex-start
   display: flex
+  
   font-family: $ibm
+  color: #313B4F
   &>*
     letter-spacing: 1.08px
     line-height: 16px
-    color: #313B4F
     text-align: right
     writing-mode: tb-rl
     transform: rotate(180deg)
@@ -100,6 +113,8 @@
 
 .list
   padding: 0
+  padding-left: 4px
+  
   &__item
     display: flex
     align-items: flex-start
@@ -109,6 +124,7 @@
     font-size: 16px
     font-weight: 400
     margin-top: 16px
+    
     +before(inline-block)
       min-height: 10px
       margin-top: 4px
@@ -139,3 +155,6 @@
   color: $whiteFont
   padding: 0 4px
   display: inline-block
+
+.bold-line
+  text-decoration: underline

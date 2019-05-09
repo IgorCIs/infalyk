@@ -3,11 +3,9 @@ include  ./../../layouts/section
 +section({ className: 'applications', title: 'Our Platforms &<br> Applications' })
   .applications__wrapper.wrapper
     each item in require('./components/applications/data.js').default
-      
-    
       .applications__item(class=`${item.active ? 'active' : ''}`)
         .applications__item__wrapper
-          .applications__item__image
+          .applications__item__image(data-animation='fadeInUp')
             - if(item.image === 'drone')
               include ./img/logo_drone.svg
               

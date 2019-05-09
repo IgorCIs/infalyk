@@ -1,0 +1,31 @@
+include ./../../../layouts/section.pug
+
+- 
+  const lidarSliderData = [
+    {
+      title: 'INFRALYTIKS created a universal LiDAR data processing algorithm',
+    },
+    {
+      title: 'These algorithms eliminate the need for purchasing & maintaining expensive & custom built drone based LiDAR kits from vendors',
+    },
+    {
+      title: 'Our mobile LiDAR System uses extremely cost-effective off-the-shelf components',
+    },
+    {
+      title: 'The algorithm is fully developed & field tested currently',
+    },
+  ]
+
++section({ className: 'decorative-list decorative-list_reverse infravieu__features lidar__slider', color: 'dark' })
+  .decorative-list__wrapper.wrapper
+    .decorative-list__text
+      .decorative-list__title.title Infralytiks LiDAR Data Processing Algorithm
+      ul.decorative-list__list.list
+        each item in lidarSliderData
+          li.list__item!=item.title
+
+    .decorative-list__image 
+      .decorative-list__slider#decorative-slider
+        each i in [1,2,3,4,5,6,7,8]
+          .decorative-list__slider__item
+            img(src=require('./assets/images/cases/1.jpg'), alt="")

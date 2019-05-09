@@ -31,7 +31,6 @@ class TriggerItem {
     triggerTargets() {
         const { targetElements, event, element } = this;
 
-        //Если неправильно указано событие - ошибка
         try {
             element.addEventListener(event, () => {
                 [...targetElements].forEach(el => {

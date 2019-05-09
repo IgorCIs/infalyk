@@ -5,13 +5,12 @@
   z-index: 20
   left: 0
   top: -90px
-  background: $white
+  background: $grey
   transition: all .6s
 
   &.sticky
     top: 0
 
-  
   &__logo
     display: flex
     align-items: center
@@ -23,17 +22,69 @@
     font-size: 14px
     justify-content: flex-end
     align-items: center
-
+  
     &__list
       display: flex
       margin-left: -28px
 
     &__item
       margin-left: 28px
-
-    &__link 
       font-weight: 600
       color: $linkColor
+      &__title
+        position: relative
+        cursor: pointer
+        
+        +before
+          width: 0
+          transition: all .3s
+          position: absolute
+          background: linear-gradient(135deg, #79A3AA 0%, #2A354E 100%);
+          bottom: -5px
+          height: 2px
+
+        +hover
+          &:before
+            width: 100%
+
+      &_has-child
+        display: flex
+        flex-direction: column
+        position: relative
+
+        &.active
+          .header__nav__item__list
+            opacity: 1
+            cursor: pointer
+            pointer-events: unset
+
+          
+
+        &>.header__nav__item__title
+          display: flex
+          align-items: center
+
+          +after
+            transform: rotate(45deg)
+            width: 7px
+            height: 7px
+            border-right: 2px solid $dark
+            border-bottom: 2px solid $dark
+            margin-left: 10px
+        
+      &__list
+        position: absolute
+        background: inherit
+        left: 0
+        display: flex
+        flex-direction: column
+        top: 20px
+        pointer-events: none
+        opacity: 0
+        transition: all .3s
+        &-item
+          cursor: unset
+          margin-top: 10px
 
   &__button
     margin-left: 48px

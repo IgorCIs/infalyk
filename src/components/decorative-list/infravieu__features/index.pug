@@ -31,12 +31,12 @@ include ./../../../layouts/section.pug
 +section({ title: 'Key<br>Features', className: 'decorative-list infravieu__features', color: 'dark' })
   .decorative-list__wrapper.wrapper
     .decorative-list__text
-      ul.decorative-list__list.list#infravieu-features-titles
+      ul.decorative-list__list.list#decorative-slider-titles
         each item in dataFeatures
           li.list__item!=item.title
 
     .decorative-list__image 
-      .decorative-list__slider#infravieu-features
+      .decorative-list__slider#decorative-slider
         each i in [1,2,3,4,5,6,7,8]
           .decorative-list__slider__item
             img(src=require('./assets/images/cases/1.jpg'), alt="")

@@ -1,0 +1,50 @@
+include ./../../layouts/section.pug
+
+-  
+  const relevantLastData = [
+    {
+      icon: 'icon-camera_icon',
+      headerTitle: 'Surveying Land & Flood',
+      text: 'Large scale surveys are processed using our LiDAR technology and supporting proprietary algorithms, This provides very accurate dimensional data over a large area. Using Digital Elevation Models (DEMs), flood modelling is one of the many features that are available using the platform',
+    },
+    {
+      icon: 'icon-camera_icon',
+      headerTitle: 'Solar',
+      list: [
+        'Roof algorithm for detecting where solar is best',
+        'In market areas where solar is most feasible, automatically identify large volumes of homes/buildings that would be ideal for solar placement',
+        'We have developed similar first-look inspection data for other clients/different purposes utilizing free satellite data for 1,000 locations at a time.',
+        'Large scale surveying and mapping for solar farm planning',
+      ]
+    },
+    {
+      icon: 'icon-camera_icon',
+      headerTitle: 'Smart cities',
+      list: [
+        'Automation of image-based inspection and analysis for modeling all aspects of:',
+        'City planning',
+        'Development',
+        'Infrastructure',
+        'Transportation',
+        'Traffic', 
+        'Flow',
+      ]
+    },
+  ]
+
++section({ className: 'grid-section relevant__primary pricing__pricings' })
+  .grid-section__wrapper
+    each item in relevantLastData
+      .grid-section__item
+        .grid-section__item__wrapper
+          .grid-section__item__header-icon
+            div(class=item.icon)
+            .grid-section__item__header-title=item.headerTitle
+          - if (item.list)
+            .grid-section__item__text
+              .list.list_dark
+                each i in item.list
+                  .list__item=i
+
+          - else 
+            .grid-section__item__text=item.text

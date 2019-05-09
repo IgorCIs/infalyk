@@ -1,0 +1,40 @@
+include ./../../../layouts/section.pug
+
+//- +section({ className: ' drone__banner banner', bg: animation, color: 'grey', })
++section({ title: 'pilot client<br>FEATURES', container: "left", bgcontainer: true, className: 'homepage__data-source, drone__client-features decorative-list decorative-list_white' })
+  .decorative-list__wrapper.wrapper
+    .decorative-list__text
+      .decorative-list__title
+        h3 Highly interactive application that allows client users to:
+        
+      #drone-client-text-slider
+        ul.decorative-list__list.list.list_dark
+          each item in ['Get drone data from pilots across the nation', 'View data securely & complete transactions', 'Different level of client users based on company size & needs', 'Interactive map showing restricted flight zones and your task']
+            li.list__item=item
+
+        ul.decorative-list__list.list.list_dark
+          each item in ['Get drone data from pilots across the nation', 'View data securely & complete transactions', 'Different level of client users based on company size & needs', 'Interactive map showing restricted flight zones and your task'].reverse()
+            li.list__item=item
+            
+        ul.decorative-list__list.list.list_dark
+          each item in ['Get drone data from pilots across the nation', 'View data securely & complete transactions', 'Different level of client users based on company size & needs', 'Interactive map showing restricted flight zones and your task']
+            li.list__item=item
+
+        ul.decorative-list__list.list.list_dark
+          each item in ['Get drone data from pilots across the nation', 'View data securely & complete transactions', 'Different level of client users based on company size & needs', 'Interactive map showing restricted flight zones and your task'].reverse()
+            li.list__item=item
+
+    .decorative-list__image 
+      .drone__client-features__slider-buttons.homepage__slider__buttons#drone-client-slider-buttons
+        .homepage__slider__button.homepage__slider__button--next.next
+          include ./../../../assets/images/btn_right.svg
+        .homepage__slider__button.homepage__slider__button--prev.prev
+          include ./../../../assets/images/btn_left.svg
+
+      .drone__client-features__big-slider#drone-client-big-slider
+        include ./../../../assets/images/mokups/phone2.svg
+
+      .drone__client-features__slider#drone-client-slider
+        each item in [require('./assets/images/phones/3.jpg'), require('./assets/images/phones/2.jpg'), require('./assets/images/phones/6.jpg'), require('./assets/images/phones/1.png')]
+          .drone__client-features__slider__item
+              img(src=item, alt="")

@@ -1,7 +1,12 @@
-.pricing__banner
-  background: $grey
+@import './lidar__banner.sass'
 
+.drone__banner
+  .banner
+    &__wrapper
+      padding: 160px 0 90px
+  
 .banner
+  background: $grey
   &__wrapper
     min-height: 600px
     flex-direction: column
@@ -9,6 +14,42 @@
     display: flex
     // opacity: 0
 
+    &_row
+      flex-direction: row
+
+  &__image
+    position: relative
+    display: flex
+    
+    &__item
+      z-index: 12
+      svg
+        width: 230px
+
+      &:last-child
+        z-index: 9
+        opacity: 0.9
+        align-items: center
+        display: flex
+        margin-left: -40px
+        
+        svg 
+          width: 190px
+        
+      
+
+  &__col
+    flex: 1 0
+
+    &_img
+      max-width: percentage(5/12)
+  
+  &__logo
+    margin-bottom: 20px
+    svg
+      width: unset
+      height: 23px
+  
   &__title
     font-size: 48px
     font-weight: bold
@@ -21,6 +62,15 @@
       font-size: 28px
       line-height: 36px;
       font-weight: 700
+
+    &__list
+      margin-top: 30px
+      margin-bottom: 40px
+      
+    &__item
+      font-size: 15px;
+      margin-top: 16px
+      font-weight: 400
 
   &__button
     margin-top: 16px

@@ -1,20 +1,21 @@
-export default function animateNode(element, animationName, callback) {
-  const node = element
+import appear from "./lib/viewport";
+
+export function animateNode(node, animationName, callback) {
   node.classList.add('animated', animationName)
+    
 
   function handleAnimationEnd() {
-      node.classList.remove('animated', animationName)
-
-      if (typeof callback === 'function') callback()
+      if (typeof callback === 'function') callback(node)
   }
 
   node.addEventListener('animationend', () => handleAnimationEnd(), true)
   node.addEventListener('webkitAnimationEnd', () => handleAnimationEnd(), true)
 }
 
-export function animate(active, elements, cb) {
-  if(active)
-    elements.forEach(item => {
-      if(item) animateNode(item, item.dataset.animation, cb)
-    })
+export default () => {
+  const elementsForAnimation = [...document.querySelectorAll('[data-animation]')]
+  elementsForAnimation.forEach(element => {
+    element.classList.add(element.dataset.animation)
+    appear(element, () => animateNode(element, element.dataset.animation), 100)
+  })
 }

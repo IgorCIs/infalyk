@@ -1,0 +1,36 @@
+include ./../../../layouts/section.pug
+
++section({ title: 'ADVANTAGES<br>FOR USERS', className: 'homepage__complex drone__advantages decorative-list', color: 'dark',})
+  .decorative-list__wrapper.wrapper
+    .decorative-list__text
+      .decorative-list__title.title Advantages to clients:
+      ul.decorative-list__list.list
+        each item in ['No full-time pilot cost,<br> training costs or hardware costs', ' Quick and easy drone based data collection', 'Convenient platform view data & pay pilots securely', 'Prices can be negotiated with pilots in different areas']
+          li.list__item!=item
+
+    .decorative-list__image
+      include ./img/img1.svg
+
+
++section({ title: 'ADVANTAGES<br>FOR USERS', className: 'homepage__data-source drone__advantages-2 decorative-list decorative-list_reverse', color: 'dark' })
+  .decorative-list__wrapper.wrapper
+    .decorative-list__text
+      .decorative-list__title.title Advantages to Pilots:
+      ul.decorative-list__list.list
+        each item in ['Pilots can utilize their skills for experience & income', 'Access to tasks uploaded in an area', 'Pilots bid for jobs & tasks in their area', 'Pilots can use in-app tools for flight planning & profile management',]
+          li.list__item=item
+
+    .decorative-list__image 
+      #data-source-svg.data-source-svg
+        .data-source-svg__bg
+          include ./../homepage__data-source/img/bg-2.svg
+
+        .data-source-svg__item
+          include ./../homepage__data-source/img/drone.svg
+
+        .data-source-svg__item
+          include ./../homepage__data-source/img/plane.svg
+
+        .data-source-svg__item
+          include ./../homepage__data-source/img/_satellite-15.svg
+    

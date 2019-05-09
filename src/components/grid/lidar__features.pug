@@ -1,0 +1,38 @@
+include ./../../layouts/section.pug
+
+-  
+  const data = [
+    {
+      icon: 'icon-camera_icon',
+      text: 'Cost-Effective Drone LiDAR Data Processing System'
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'Uses off-the-shelf Components and Relies on advanced algorithms for High Quality Data Alignment'
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'Fine Data Alignment Process done on Cloud Computing Servers'
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'On-Board Alignment Process Handled by Raspberry Pi'
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'High Precision Data Alignment Algorithm with +/-5 cm error Map Output'
+    },
+    {
+      icon: 'icon-camera_icon',
+      text: 'Algorithm can be customized for any professional mobile platforms - automobiles, drones, bikes or handheld'
+    },
+  ]
+
++section({title: 'LiDAR Now Features', className: 'grid-section homepage__utilize lidar__features'})
+  .grid-section__wrapper
+    each item in data
+      .grid-section__item
+        .grid-section__item__wrapper
+          .grid-section__item__header-icon
+            div(class=item.icon)
+          .grid-section__item__text=item.text

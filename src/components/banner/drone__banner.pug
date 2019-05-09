@@ -1,0 +1,28 @@
+include ./../../layouts/section.pug
+
+- 
+  const animation = '<canvas> </canvas>'
+
+//- +section({ className: ' drone__banner banner', bg: animation, color: 'grey', container: 'left', bgcontainer: true })
++section({ className: ' drone__banner banner', bg: animation, color: 'grey' })
+  .banner__wrapper.banner__wrapper_row
+    .banner__col
+      .banner__logo
+        include ./../applications/img/logo_drone.svg
+      .banner__title
+        h1 Our App for <br> Drone Pilots & Clients
+      .banner__descr 
+        .banner__descr__list
+          each item in ['Cross-Platform Application', 'Google Play Store – Apple Store – Web', 'Professional Drone Pilot Network', 'Basic – PRO – Enterprise Versions Available', 'Interface with <b class="bold-line"> InfraVIEU </b>']
+            .banner__descr__item!=item
+
+      .banner__button
+        include ./../app-links/index
+
+    .banner__col.banner__col_img
+      .banner__image
+        .banner__image__item 
+          include ./../../assets/images/mokups/phone2.svg
+          
+        .banner__image__item
+          include ./../../assets/images/mokups/android2.svg

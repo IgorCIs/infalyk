@@ -1,0 +1,41 @@
+include ./../../layouts/section.pug
+
+-  
+  const relevantInfrData = [
+    {
+      icon: 'icon-camera_icon',
+      headerTitle: 'Bridges',
+      text: [
+        '<b>Infralytiks</b> can safely inspect transportation infrastructure such as bridges with relative ease and efficiency as compared to traditional methods. ',
+        'Our defect detection and machine learning is constantly improving to provide bridge consultants and inspectors with the information they need to make decisions.'
+      ]
+    },
+    {
+      icon: 'icon-camera_icon',
+      headerTitle: 'Buildings',
+      text: [
+        '<b>Infralytiks </b>can safely inspect commercial buildings and process the data in a short amount of time. Our processes include 3D model generation',
+        'HD defect detection and infrared thermography. These are all helpful in determining the condition of a commercial structure.'
+      ]
+    },
+    {
+      icon: 'icon-camera_icon',
+      headerTitle: 'Oil & Gas',
+      text: [
+        '<b> Infralytiks </b>  is capable of providing detailed asset integrity management of O&G infrastructure using its multi-tiered APA system.',
+        'We are capable of performing highly accurate inspection and analysis of tank farms, oil jetties, tansk, pipelines, process plants, chimneys, tall columns & towers for both onshore and offshore platforms.',
+      ]
+    },
+  ]
++section({ className: 'grid-section relevant__infrastructure pricing__pricings' })
+  .grid-section__wrapper
+    each item in relevantInfrData
+      .grid-section__item
+        .grid-section__item__wrapper
+          .grid-section__item__header-icon
+            div(class=item.icon)
+            .grid-section__item__header-title=item.headerTitle
+            
+          .grid-section__item__text
+            each i in item.text
+              p!=i

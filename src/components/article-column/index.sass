@@ -14,12 +14,16 @@
     display: flex
     flex-direction: column
     
+  &_white
+    background: $white
+
   &__item
     display: flex
     position: relative
     padding-top: 70px
     padding-bottom: 55px
     border-bottom: 1px solid $border-color
+
     &:last-child
       border-bottom: unset
 
@@ -32,10 +36,16 @@
       width: percentage(8/12)
 
     &__text
+      &:first-child
+        margin-top: 0 
+      
       padding-left: 70px
+      margin-top: 40px
       padding-right: 40px
       p
         margin-bottom: 25px 
+      
+      margin-bottom: 40px
 
     &__person
       font-weight: bold

@@ -1,0 +1,37 @@
+
+include ./../../layouts/section.pug
+
+- 
+  const relevantConstrData = {
+      title: 'Construction<br>Progress-<br>Monitoring',
+      text: [
+        "<b>Infralytiks</b> views Construction Progress-Monitoring as a Risk Management process:  Our vision provides for a lineup of images and video as a highly accurate way to provide ongoing checks on the quality, accuracy and overall progress of a construction project based on the client's due diligence requirements.",
+        '<b>We do</b> this primarily through image monitoring, using identical vantage-point image capture from a range of different perspectives to provide images side-by-side or as overlays for easy comparison and progress monitoring in an easy to use visual format.',
+        '<b>We can automate</b> change detection over time and identify what has changed to a degree using single photos as well as Orthomosaics. We can also automatically locate specific assets with respect to metadata tags in the imagery or video (video is much more difficult to properly geolocate with so we prefer photos when geolocating assets and equipment)',
+      ],
+      img: require('./assets/images/cases/1.jpg'),
+      text2: [
+        '<b>We can also </b> create virtual tours of the project in 3D for a visual walk around, and a virtual time-lapse presentation utilizing the unique perspective of aerial photogrammetry.  Our process can utilize both HD and LiDAR imaging and can be presented in 2D or 3D. The 3D models can be used for volumetric dimensioning and positioning as well as adding objects.', 
+        '<b>We can provide </b>the drone/pilot or clients are welcome to fly a drone to do image capture according to our pre-programmed specifications, and InfraLytiks will provide the processed images via our proprietary platform.',
+        '<b>Our vision </b>enables comparison viewing, dimensioning, topography measurement and complete geo-tagging of all elements from initial groundwork and surveying through final construction. All images can be shared with clients through a simple email option including annotations made on the images.',
+        'Internal image capture and monitoring can be accomplished as well using hand-held image capture based on <b>InfraLytiks</b> specifications. ',
+      ]
+    }
+
++section({ title: 'Relevant<br>Applications', className: 'cases__column article-column' })
+  .article-column__wrapper
+    .article-column__item
+      .article-column__item__title
+        .title_dark.title!=relevantConstrData.title
+
+      .article-column__item__content
+        .article-column__item__text
+          each i in relevantConstrData.text
+            p!=i
+
+        .article-column__item__image
+          img(src=relevantConstrData.img)
+
+        .article-column__item__text
+          each i in relevantConstrData.text2
+            p!=i
