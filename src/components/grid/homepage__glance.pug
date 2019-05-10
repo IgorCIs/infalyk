@@ -1,7 +1,7 @@
 include ./../../layouts/section.pug
 
 +section({ title: 'InfraLytiks<br> at a Glance', className: 'grid-section' })
-  .grid-section__wrapper
+  .grid-section__wrapper(data-animation='fromOpacity')
     .grid-section__item
       .grid-section__item__wrapper
         .grid-section__item__text Machine Learning & AI for complex multi-spectral & multi-dimensional data 
@@ -13,7 +13,7 @@ include ./../../layouts/section.pug
           a(href="#").grid-section__item__icon.grid-section__item__icon_arrow
             include ./../../assets/images/btn_right.svg
 
-    .grid-section__item
+    .grid-section__item(data-animation='fromOpacity' data-delay='500')
       .grid-section__item__wrapper
         .grid-section__item__text We collect process, analyze and visualize data from multiple sources 
         .grid-section__item__icons.wrapper
@@ -24,9 +24,9 @@ include ./../../layouts/section.pug
           a(href="#").grid-section__item__icon.grid-section__item__icon_arrow
             include ./../../assets/images/btn_right.svg
 
-    .grid-section__item
+    .grid-section__item(data-animation='fromOpacity' data-delay='1000') 
       .grid-section__item__wrapper
-        .grid-section__item__text Our custom developed approaches bring quality and consistency to your analysis 
+        .grid-section__item__textOur custom developed approaches bring quality and consistency to your analysis 
         .grid-section__item__icons.wrapper
           .grid-section__item__icon.icon-settings_icon
           .grid-section__item__icon.icon-data_icon

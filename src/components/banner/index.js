@@ -92,7 +92,7 @@ export default () => {
       if (z < 0) return
     
       
-      c.globalAlpha = a
+      c.globalAlpha = 1945
       c.fillStyle = `#B8BCC5`
       c.fillRect(x - a * vertexSize / 2, y - a * vertexSize / 2, a * vertexSize, a * vertexSize)
       c.globalAlpha = 1

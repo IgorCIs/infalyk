@@ -10,18 +10,20 @@ import Header from './components/header'
 import DronePilotSlider from './components/decorative-list/drone__pilot-features';
 import DroneClientSlider from './components/decorative-list/drone__client-features';
 import AnimateNode from './assets/scripts/animateNode';
+import Loader from './assets/scripts/loader';
 
 document.addEventListener("DOMContentLoaded", () => {
   SameHeight()
   DronePilotSlider()
   DroneClientSlider()
+  Loader()
   AnimateNode()
   Trigger()
   HomepageSlider()
   FeaturesSlider()
   Applications()
   Header()
-  // HomepageBanner()
-
+  HomepageBanner()
+  
   new Popups()
 })

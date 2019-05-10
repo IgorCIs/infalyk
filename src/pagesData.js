@@ -6,12 +6,30 @@ export default [
   },
   {
     text: 'What We Do',
-    href: './cases.html',
+    list: [
+      {
+        text: 'InfraDrone',
+        href: './infradrone.html'
+      },
+      {
+        text: 'LiDAR Now',
+        href: './lidar.html'
+      },
+      {
+        text: 'When to Utilize InfraLytiks',
+        href: './utilize.html'
+      },
+    ],
     id: '2'
   },
   {
     text: 'Case Studies',
-    href: './cases.html',
+    list: [
+      {
+        text: 'Applications',
+        href: './cases.html',
+      },
+    ],
     id: '3'
   },
   {

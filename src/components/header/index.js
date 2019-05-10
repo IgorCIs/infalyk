@@ -2,7 +2,7 @@ export default () => {
   const header = document.querySelector('.header')
   const delta = 10
   const headerHeight = header.offsetHeight
-  
+
   let lastScrollTop
   let didScroll
   

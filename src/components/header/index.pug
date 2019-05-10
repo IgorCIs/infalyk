@@ -1,15 +1,15 @@
-.header.sticky(data-animation='fadeInDown')
+.header.sticky
   //- .bg-container
   //-   div.line
   //-   div.line
   //-   div.line
 
   .header__wrapper.wrapper
-    a(href="/").header__logo
+    a.header__logo(href='./' data-animation='fadeDown' data-instant='true')
       .header__logo__img
         include ./../../assets/images/logo.svg
 
-    nav.header__nav
+    nav.header__nav(data-animation='fadeDown'  data-delay='500' data-instant='true')
       .header__nav__list
       each item in require('./../../pagesData.js').default
         - if (item.list)
@@ -25,7 +25,7 @@
               a(href=item.href)=item.text
 
 
-    .header__button
+    .header__button(data-animation='fadeDown' data-delay='1000' data-instant='true')
       a(href="#").heaeder__button__link.btn.btn_color_grey get in touch
 
   

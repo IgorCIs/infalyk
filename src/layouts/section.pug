@@ -1,7 +1,7 @@
 mixin section({ bgcontainer, container, className, title, color, sliderButtons, bg })
   .section(class=`${className} ${color ? `section_${color}` : '' }`)
     .section__bg!=bg
-    .aside
+    .aside(data-animation='leftTitle')
       - if (title)
         h7!=title
 

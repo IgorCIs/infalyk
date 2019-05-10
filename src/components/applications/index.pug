@@ -2,39 +2,41 @@ include  ./../../layouts/section
 
 +section({ className: 'applications', title: 'Our Platforms &<br> Applications' })
   .applications__wrapper.wrapper
-    each item in require('./components/applications/data.js').default
+    - const data = require('./components/applications/data.js').default
+    - for(let i = 0; i < data.length; i++) 
+      - const item = data[i]
       .applications__item(class=`${item.active ? 'active' : ''}`)
         .applications__item__wrapper
-          .applications__item__image(data-animation='fadeInUp')
+          .applications__item__image(data-animation='fromOpacity')
             - if(item.image === 'drone')
               include ./img/logo_drone.svg
               
-          .applications__item__title!=item.title
-          .applications__item__descr
+          .applications__item__title(data-animation='fadeDownMini')!=item.title
+          .applications__item__descr(data-animation='fromOpacity' data-delay='200')
             each i in item.descr
               .applications__item__descr__item!=i
 
           .applications__item__buttons.wrapper
             - if (item.links[0])
-              a(href="#").btn.btn_color_grey=item.links[0]
-            - if (item.links[1])
-              a(href="#").btn.btn_color_white=item.links[1]
+              a(href="#" data-animation='fromOpacity').btn.btn_color_grey=item.links[0]
+            - if (item.links[1] )
+              a(href="#" data-animation='fromOpacity' data-delay='400').btn.btn_color_white=item.links[1]
 
           .applications__item__also
             - if (item.also)
-              .applications__item__also__title This app also in:
+              .applications__item__also__title(data-animation='fromOpacity') This app also in:
                 .applications__item__also__list
-                  a(href="#").applications__item__also__item
+                  a(href="#" data-animation='fromOpacity').applications__item__also__item
                     .icon
                       include ./../../assets/images/socials/android_icon.svg
                     .text Android
 
-                  a(href="#").applications__item__also__item
+                  a(href="#" data-animation='fromOpacity' data-delay='200').applications__item__also__item
                     .icon
                       include ./../../assets/images/socials/ios_icon.svg
                     .text iOS
 
-                  a(href="#").applications__item__also__item
+                  a(href="#" data-animation='fromOpacity' data-delay='400').applications__item__also__item
                     .icon
                       include ./../../assets/images/socials/web_icon.svg
                     .text Web
