@@ -3,9 +3,9 @@ include ./../../../layouts/section.pug
 +section({ title: 'PILOT USER<br>FEATURES', className: 'homepage__data-source drone__pilot-features decorative-list decorative-list_white decorative-list_reverse' })
   .decorative-list__wrapper.wrapper
     .decorative-list__text
-      .decorative-list__title
+      .decorative-list__title(data-animation='articleTitleRight')
         h3 Pilot planner tools:
-      #drone-pilot-slider
+      #drone-pilot-slider(data-animation='articleTitleRight' data-delay='400')
         ul.decorative-list__list.list.list_dark
           each item in ['Alerts you of tasks in your area', 'Set your custom tasks alert radius', 'Track your new tasks, active taskss, previous tasks.', 'View task descriptions and bid for tasks with clients.']
             li.list__item=item
@@ -18,7 +18,7 @@ include ./../../../layouts/section.pug
           each item in ['Alerts you of tasks in your area', 'Set your custom tasks alert radius', 'Track your new tasks, active taskss, previous tasks.', 'View task descriptions and bid for tasks with clients.']
             li.list__item=item
 
-    .decorative-list__image 
+    .decorative-list__image
       .drone__pilot-features__image
         img(src=require('./assets/images/phones/1.png'))
 

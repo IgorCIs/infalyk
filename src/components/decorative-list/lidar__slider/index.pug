@@ -19,12 +19,12 @@ include ./../../../layouts/section.pug
 +section({ className: 'decorative-list decorative-list_reverse infravieu__features lidar__slider', color: 'dark' })
   .decorative-list__wrapper.wrapper
     .decorative-list__text
-      .decorative-list__title.title Infralytiks LiDAR Data Processing Algorithm
-      ul.decorative-list__list.list
+      .decorative-list__title.title(data-animation='articleTitleRight') Infralytiks LiDAR Data Processing Algorithm
+      ul.decorative-list__list.list(data-animation='articleTitleRight' data-delay='300')
         each item in lidarSliderData
           li.list__item!=item.title
 
-    .decorative-list__image 
+    .decorative-list__image(data-animation='articleTitleLeft')
       .decorative-list__slider#decorative-slider
         each i in [1,2,3,4,5,6,7,8]
           .decorative-list__slider__item

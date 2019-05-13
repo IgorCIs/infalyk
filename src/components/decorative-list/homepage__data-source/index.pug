@@ -3,12 +3,12 @@ include ./../../../layouts/section.pug
 +section({ className: 'homepage__data-source decorative-list decorative-list_reverse', color: 'dark',})
   .decorative-list__wrapper.wrapper
     .decorative-list__text
-      .decorative-list__title.title Data Source <br> Include
-      ul.decorative-list__list.list
+      .decorative-list__title.title(data-animation='articleTitleRight') Data Source <br> Include
+      ul.decorative-list__list.list(data-animation='articleTitleRight' data-dekay='400')
         each item in ['Satellite', 'Aircraft', 'Helicopter', 'Drone', 'Vehicle', 'Hand Held']
           li.list__item=item
 
-    .decorative-list__image 
+    .decorative-list__image(data-animation='articleTitleLeft' data-dekay='600')
       #data-source-svg.data-source-svg
         .data-source-svg__bg
           include ./img/bg-2.svg

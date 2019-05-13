@@ -11,8 +11,9 @@ include ./../../layouts/section.pug
 +section({ title: 'lidar<br>now', className: 'lidar__now', color: 'dark' })
   .lidar__now__wrapper
     .lidar__now__list.wrapper
-      each item in lidarNowData
-        .lidar__now__item
-          .lidar__now__item__wrapper
-            p=item
+      - for(let i = 0; i < lidarNowData.length; i++)
+        - const item = lidarNowData[i]
+          .lidar__now__item(data-animation='fromOpacity' data-delay=`${400 * i}`)
+            .lidar__now__item__wrapper
+              p=item
 

@@ -32,13 +32,13 @@ include ./../../layouts/section.pug
     each item in casesData 
       .article-column__item
         .article-column__item__title
-          .title_dark.title!=item.title
+          .title_dark.title(data-animation='articleTitleLeft')!=item.title
 
         .article-column__item__content
-          .article-column__item__text
+          .article-column__item__text(data-animation='fromOpacity')
             each i in item.text
               p!=i
 
           - if (item.img)
-            .article-column__item__image
+            .article-column__item__image(data-animation='fromOpacity')
               img(src=item.img)

@@ -8,6 +8,10 @@ export default [
     text: 'What We Do',
     list: [
       {
+        text: 'Infravieu',
+        href: './infravieu.html'
+      },
+      {
         text: 'InfraDrone',
         href: './infradrone.html'
       },

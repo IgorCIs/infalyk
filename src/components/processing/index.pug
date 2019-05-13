@@ -32,15 +32,16 @@ include ./../../layouts/section.pug
 
 +section({ title: 'Our data<br> processing', className: 'processing' })
   .processing__wrapper.wrapper
-    each item in processingData
-      .processing__item
-        .processing__item__wrapper
-          .processing__item__header(data-same='processing-header')
-            .processing__item__icon(class=item.icon)
-            .processing__item__title=item.title
+    - for(let i = 0; i < processingData.length; i++)
+      - const item = processingData[i]
+        .processing__item
+          .processing__item__wrapper
+            .processing__item__header(data-same='processing-header' data-animation='fadeDownMini' data-delay=`${i * 500}`)
+              .processing__item__icon(class=item.icon)
+              .processing__item__title=item.title
 
-          .processing__item__list.list.list_dark(data-same='processing-list')
-            each i in item.list
-              .list__item.processing__item__list-item=i
+            .processing__item__list.list.list_dark(data-same='processing-list' data-animation='fromOpacity' data-delay=`${i * 600}`)
+              each i in item.list
+                .list__item.processing__item__list-item=i
 
-            
+              

@@ -4,10 +4,10 @@ include ./../../../layouts/section.pug
 +section({ title: 'pilot client<br>FEATURES', container: "left", bgcontainer: true, className: 'homepage__data-source, drone__client-features decorative-list decorative-list_white' })
   .decorative-list__wrapper.wrapper
     .decorative-list__text
-      .decorative-list__title
+      .decorative-list__title(data-animation='articleTitleLeft')
         h3 Highly interactive application that allows client users to:
         
-      #drone-client-text-slider
+      #drone-client-text-slider(data-animation='articleTitleLeft' data-delay='300')
         ul.decorative-list__list.list.list_dark
           each item in ['Get drone data from pilots across the nation', 'View data securely & complete transactions', 'Different level of client users based on company size & needs', 'Interactive map showing restricted flight zones and your task']
             li.list__item=item
@@ -24,7 +24,7 @@ include ./../../../layouts/section.pug
           each item in ['Get drone data from pilots across the nation', 'View data securely & complete transactions', 'Different level of client users based on company size & needs', 'Interactive map showing restricted flight zones and your task'].reverse()
             li.list__item=item
 
-    .decorative-list__image 
+    .decorative-list__image(data-animation='articleTitleRight')
       .drone__client-features__slider-buttons.homepage__slider__buttons#drone-client-slider-buttons
         .homepage__slider__button.homepage__slider__button--next.next
           include ./../../../assets/images/btn_right.svg

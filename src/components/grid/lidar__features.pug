@@ -30,9 +30,11 @@ include ./../../layouts/section.pug
 
 +section({title: 'LiDAR Now Features', className: 'grid-section homepage__utilize lidar__features'})
   .grid-section__wrapper
-    each item in data
-      .grid-section__item
-        .grid-section__item__wrapper
-          .grid-section__item__header-icon
-            div(class=item.icon)
-          .grid-section__item__text=item.text
+    - for(let i = 0; i < data.length; i++)
+      - const alpha = i < 3 ? i : i - 3
+      - const item = data[i]
+        .grid-section__item(data-animation='fromOpacity' data-delay=`${alpha * 300}`)
+          .grid-section__item__wrapper
+            .grid-section__item__header-icon
+              div(class=item.icon)
+            .grid-section__item__text=item.text

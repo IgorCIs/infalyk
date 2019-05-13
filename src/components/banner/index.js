@@ -1,125 +1,158 @@
-export default () => {
-  /**
- * 3D Software ocean effect with Canvas2D
- * You can change properties under comment "Effect properties"
- */
-  // Init Context
-  const canvasElement = document.getElementById('home-banner') 
-  let c = canvasElement.getContext('2d')
-  // let postctx = document.body.appendChild(document.createElement('canvas')).getContext('2d')
+import * as THREE from 'three'
 
-  let canvas = c.canvas
-  let vertices = []
+let container = document.getElementById('home-banner');
 
-  // Effect Properties
-  let vertexCount = 8000
-  let vertexSize = 3
-  let oceanWidth = 204
-  let oceanHeight = -80
-  let gridSize = 32;
-  let waveSize = 16;
-  let perspective = 100;
+export default !container ? f=>f : () => {
+  let SEPARATION = 50, AMOUNTX = 100, AMOUNTY = 100;
+  let count = 0;
+  let mouseX = 0, mouseY = 0;
+  let windowHalfX = window.innerWidth / 2;
+  let windowHalfY = window.innerHeight / 2;
 
-  // Common variables
-  let depth = (vertexCount / oceanWidth * gridSize)
-  let frame = 0
-  let { sin, cos, tan, PI } = Math
+  let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+  camera.position.z = 1000;
 
-  // Render loop
-  const setCanvasSize = () => {
-    canvas.height = canvasElement.parentNode.offsetHeight
-    canvas.width = canvasElement.parentNode.offsetWidth
+  let scene = new THREE.Scene();
+  let renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+  
+  let particles;
+  let xSpace = 1, ySpace = 1;
+  
+  const init = () => {
+    let numParticles = AMOUNTX * AMOUNTY;
+    let positions = new Float32Array( numParticles * 3 );
+    let scales = new Float32Array( numParticles );
+    let i = 0, j = 0;
+    for ( let ix = 0; ix < AMOUNTX; ix ++ ) {
+      for ( let iy = 0; iy < AMOUNTY; iy ++ ) {
+        positions[ i ] = ix * SEPARATION - ( ( AMOUNTX * SEPARATION ) * xSpace ); // x
+        positions[ i + 1 ] = 0; // y
+        positions[ i + 2 ] = iy * SEPARATION - ( ( AMOUNTY * SEPARATION ) * ySpace ); // z
+        positions[ i ] += AMOUNTX * 0.5 * xSpace * SEPARATION; 
+        positions[ i + 2 ] +=  AMOUNTY * 0.5 * ySpace * SEPARATION;
+        scales[ j ] = 1;
+        i += 3;
+        j ++;
+      }
+    }
+
+    let geometry = new THREE.BufferGeometry();
+    geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
+    geometry.addAttribute( 'scale', new THREE.BufferAttribute( scales, 1 ) );
+
+    let material = new THREE.ShaderMaterial( {
+      uniforms: {
+        color: { value: new THREE.Color( 0xA0A5B1 ) },
+      },
+      vertexShader: `
+
+        attribute float scale;
+        varying float distanceToCamera;
+
+        float distanceBetweenVec3( vec3 v1, vec3 v2 ){
+          float dx = v1.x - v2.x;
+          float dy = v1.y - v2.y;
+          float dz = v1.z - v2.z;
+          float result = sqrt( dx * dx + dy * dy + dz * dz );
+          return result;
+        }
+
+        void main() {
+          vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+          vec4 pixelPosition = modelMatrix * vec4( position, 1.0 );
+          distanceToCamera = distanceBetweenVec3( pixelPosition.xyz, cameraPosition.xyz );
+          gl_Position = projectionMatrix * mvPosition;
+
+
+          float transparency = 1.0;
+          float clearDistance = 1500.;
+
+          if( distanceToCamera > clearDistance ){
+            transparency = 1. - atan( (distanceToCamera - clearDistance) / clearDistance) / 1.6;
+            gl_PointSize = (2.0 + 18.0 * ( 130.0 / - mvPosition.z )) * transparency;
+          } else { 
+            gl_PointSize = 2.0 + 18.0 * ( 130.0 / - mvPosition.z );
+          }
+          
+        }
+      `,
+      fragmentShader: `
+        uniform vec3 color;
+        varying float distanceToCamera;
+
+        void main() {
+          if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;
+
+          float transparency = 1.0;
+          float clearDistance = 1500.;
+
+          if( distanceToCamera > clearDistance ){
+            transparency = 1. - atan( (distanceToCamera - clearDistance) / clearDistance) / 1.6;
+          }
+
+          gl_FragColor = vec4( color, transparency );
+        }
+      `
+    });
+    //
+    particles = new THREE.Points( geometry, material );
+    
+    scene.add( particles );
+    //
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    container.appendChild( renderer.domElement );
+    
+    camera.position.x = 714;
+    camera.position.y = 443;
+    document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+    //
+    window.addEventListener( 'resize', onWindowResize, false );
   }
   
-  let loop = () => {
-    let rad = sin(frame / 100) * PI / 20
-    let rad2 = sin(frame / 50) * PI / 10
-    frame++
-   
-    c.fillStyle = `hsl(360, 100%, 100%)`
-    c.fillRect(0, 0, canvas.width, canvas.height)
-    c.save()
-    c.translate(canvas.width / 2, canvas.height / 2)
-    
-    c.beginPath()
-    vertices.forEach((vertex, i) => {
-      let ni = i + oceanWidth
-      let x = vertex[0] - frame % (gridSize * 2)
-      let z = vertex[2] - frame * 2 % gridSize + (i % 2 === 0 ? gridSize / 2 : 0)
-      let wave = (cos(frame / 45 + x / 50) - sin(frame / 20 + z / 50) + sin(frame / 30 + z*x / 10000))
-      let y = vertex[1] + wave * waveSize
-      let a = Math.max(0, 1 - (Math.sqrt(x ** 2 + z ** 2)) / depth)
-      let tx, ty, tz
-      
-      y -= oceanHeight
-      
-      // Transformation variables
-      tx = x
-      ty = y
-      tz = z
-
-      // Rotation Y
-      tx = x * cos(rad) + z * sin(rad)
-      tz = -x * sin(rad) + z * cos(rad)
-      
-      x = tx
-      y = ty
-      z = tz
-      
-      // Rotation Z
-      tx = x * cos(rad) - y * sin(rad)
-      ty = x * sin(rad) + y * cos(rad) 
-      
-      x = tx;
-      y = ty;
-      z = tz;
-      
-      // Rotation X
-      
-      ty = y * cos(rad2) - z * sin(rad2)
-      tz = y * sin(rad2) + z * cos(rad2)
-      
-      x = tx;
-      y = ty;
-      z = tz;
-
-      x /= z / perspective
-      y /= z / perspective
-      
-      
-          
-      if (a < 0.01) return
-      if (z < 0) return
-    
-      
-      c.globalAlpha = 1945
-      c.fillStyle = `#B8BCC5`
-      c.fillRect(x - a * vertexSize / 2, y - a * vertexSize / 2, a * vertexSize, a * vertexSize)
-      c.globalAlpha = 1
-    })
-    c.restore()
-    
-    // Post-processing
-    // postctx.drawImage(canvas, 0, 0)
-    
-    // postctx.globalCompositeOperation = "screen"
-    // postctx.filter = 'blur(16px)'
-    // postctx.drawImage(canvas, 0, 0)
-    // postctx.filter = 'blur(0)'
-    // postctx.globalCompositeOperation = "source-over"
-    
-    requestAnimationFrame(loop)
+  const onWindowResize = () => {
+    windowHalfX = window.innerWidth / 2;
+    windowHalfY = window.innerHeight / 2;
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
   }
 
-  // Generating dots
-  for (let i = 0; i < vertexCount; i++) {
-    let x = i % oceanWidth
-    let y = 0
-    let z = i / oceanWidth >> 0
-    let offset = oceanWidth / 2
-    vertices.push([(-offset + x) * gridSize, y * gridSize, z * gridSize])
+  const onDocumentMouseMove = event => {
+    mouseX = event.clientX - windowHalfX;
+    mouseY = event.clientY - windowHalfY;
   }
 
-  setCanvasSize()
-  loop()
+  const animate = () => {
+    requestAnimationFrame( animate );
+    render();
+  }
+
+  const render = () => {
+    camera.lookAt( scene.position );
+    
+    let positions = particles.geometry.attributes.position.array;
+    let scales = particles.geometry.attributes.scale.array;
+    let i = 0, j = 0, ph = 30;
+    let timeM = 0.2, timeN = 0.4;
+
+    for ( let ix = 0; ix < AMOUNTX; ix ++ ) {
+      for ( let iy = 0; iy < AMOUNTY; iy ++ ) {
+        positions[ i + 1 ] = ( Math.sin( ( ix + count ) *  timeM ) * ph ) +
+                ( Math.sin( ( iy + count ) * timeN ) * ph );
+        scales[ j ] = ( Math.sin( ( ix + count ) * 0.3 ) + 1 ) * 8 +
+                ( Math.sin( ( iy + count ) * 0.5 ) + 1 ) * 8;
+        i += 3;
+        j ++;
+      }
+    }
+    particles.geometry.attributes.position.needsUpdate = true;
+    particles.geometry.attributes.scale.needsUpdate = true;
+    count += 0.1;
+    renderer.render( scene, camera );
+  }
+
+  
+  init();
+  animate();
 }

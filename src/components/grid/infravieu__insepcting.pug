@@ -18,9 +18,10 @@ include ./../../layouts/section.pug
 
 +section({title: 'Enable Automated<br>Inspectins', className: 'grid-section infravieu__insepcting'})
   .grid-section__wrapper
-    each item in data
-      .grid-section__item
-        .grid-section__item__wrapper
-          .grid-section__item__header-icon
-            div(class=item.icon)
-          .grid-section__item__text!=item.text
+    - for(let i = 0; i < data.length; i++)
+      - const item = data[i]
+        .grid-section__item(data-animation='fromOpacity' data-delay=`${400 * i}`)
+          .grid-section__item__wrapper
+            .grid-section__item__header-icon
+              div(class=item.icon)
+            .grid-section__item__text!=item.text

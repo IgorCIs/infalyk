@@ -34,20 +34,20 @@ include ./../../layouts/section.pug
     each item in casesData 
       .article-column__item
         .article-column__item__title
-          .title_dark.title!=item.title
+          .title_dark.title(data-animation='articleTitleLeft')!=item.title
 
         .article-column__item__content
-          .article-column__item__text
+          .article-column__item__text(data-animation='fromOpacity')
             each i in item.text
               p!=i
               
             - if (item.person)
-              .article-column__item__person
+              .article-column__item__person(data-animation='fromOpacity' data-delay='400')
                 .article-column__item__person__name!=item.person.name
                 .article-column__item__person__position!=item.person.position
 
           - if (item.img)
-            .article-column__item__image
+            .article-column__item__image(data-animation='fromOpacity' data-delay='600')
               img(src=item.img)
 
 

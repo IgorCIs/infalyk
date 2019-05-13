@@ -75,8 +75,11 @@
       &__list
         position: absolute
         background: inherit
-        left: 0
+        left: -10px
+        border-radius: 8px
         display: flex
+        background: $grey
+        padding: 10px
         flex-direction: column
         top: 20px
         pointer-events: none
@@ -92,6 +95,17 @@
   &-light
     background: $dark
     .header
+      &__nav
+        &__item
+          &__list
+            background: $dark
+          
+          &__title
+            color: $whiteFont
+
+            &:after
+              border-color: white
+
       &__logo
         svg
           path

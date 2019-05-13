@@ -1,8 +1,9 @@
 include ./../../layouts/section.pug
 
-- const animation = '<canvas> </canvas>'
+- 
+  const animation = '<div id="home-banner"> </div>'
 
 +section({ className: 'about__banner banner', bg: animation })
   .banner__wrapper
-    .banner__title Who We Are
-    .banner__descr Learn About Our Team!
+    .banner__title(data-animation='fadeDown') Who We Are
+    .banner__descr(data-animation='fromOpacity') Learn About Our Team!

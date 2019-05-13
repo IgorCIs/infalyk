@@ -16,6 +16,7 @@ const slickConfigText = {
 const slickConfigSmall = {
   slidesToShow: 3,
   arrows: false,
+  draggable: false,
   initialSlide: 1,
   responsive: [
     {

@@ -3,10 +3,10 @@ include ./../../../layouts/section.pug
 +section({ title: 'Сapabilities<br> & Expertise', className: 'lidar__drone decorative-list', color: 'dark',})
   .decorative-list__wrapper.wrapper
     .decorative-list__text
-      .decorative-list__title.title Drone LiDAR Market Shortcomings
-      ul.decorative-list__list.list
+      .decorative-list__title.title(data-animation='articleTitleLeft') Drone LiDAR Market Shortcomings
+      ul.decorative-list__list.list(data-animation='articleTitleLeft' data-delay='200')
         each item in ['Currently, LiDAR requires high-endexpensive RTK-GPS, IMU & Integration Kits', 'Drone LiDAR Market has a lot of expensive &custom kit manufacturers', 'Such Drone-based LiDAR kits cost range from $65K to $100K+', 'Some companies also charge extra for post-processing & viewing your LiDAR data']
           li.list__item=item
 
-    .decorative-list__image
+    .decorative-list__image(data-animation='articleTitleRight')
       include ./img/lidar-now.svg

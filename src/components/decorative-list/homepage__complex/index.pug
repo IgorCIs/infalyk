@@ -3,10 +3,10 @@ include ./../../../layouts/section.pug
 +section({ title: 'Сapabilities<br> & Expertise', className: 'homepage__complex decorative-list', color: 'dark',})
   .decorative-list__wrapper.wrapper
     .decorative-list__text
-      .decorative-list__title.title Complex Multi-Spectral and Multi-Dimensional Data
-      ul.decorative-list__list.list
+      .decorative-list__title.title(data-animation='articleTitleLeft') Complex Multi-Spectral and Multi-Dimensional Data
+      ul.decorative-list__list.list(data-animation='articleTitleLeft' data-dekay='400')
         each item in ['HD Imagery', '3D Models', 'Orthomosaics', 'IR Thermal Imagery', 'IR Thermal Imagery']
           li.list__item=item
 
-    .decorative-list__image
+    .decorative-list__image(data-animation='articleTitleRight' data-dekay='600')
       include ./img/img.svg

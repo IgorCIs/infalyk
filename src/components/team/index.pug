@@ -23,16 +23,17 @@ include ./../../layouts/section.pug
   .team__wrapper.wrapper
     .team__header.wrapper
       .team__title
-        .title Team of highly skilled engineers and scientists
+        .title(data-animation='leftTitle') Team of highly skilled engineers and scientists
 
-      .team__descr
+      .team__descr(data-animation='articleTitleRight')
         p InfraLytiks currently has a team of highly skilled engineers and scientists, with degrees ranging from Aerospace and Mechanical Engineering to Computer Science and Systems Engineering, including a number of advanced degrees as well as an experienced management team.
 
     
     .team__list 
-      each item in data
+      - for(let i = 0; i < data.length; i++)
+        - const item = data[i]
         .team__item
           .team__item__wrapper
-            .team__item__name!=item.name
-            .team__item__position!=item.position
-            .team__item__text!=item.text
+            .team__item__name(data-animation='fromOpacity' data-delay=`${i*100}`)!=item.name
+            .team__item__position(data-animation='fromOpacity' data-delay=`${i*250}`)!=item.position
+            .team__item__text(data-animation='fromOpacity' data-delay=`${i*350}`)!=item.text

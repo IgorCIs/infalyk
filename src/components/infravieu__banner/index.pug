@@ -2,15 +2,15 @@ include ./../../layouts/section.pug
 
 +section({title: '', className: 'infravieu__banner'})
   .infravieu__banner__wrapper.wrapper
-    .infravieu__banner__image
+    .infravieu__banner__image(data-animation='fadeDown')
       img(src=require('./assets/images/infravieu__logo.svg'))
 
-    .infravieu__banner__title 
+    .infravieu__banner__title(data-animation='leftTitle')
       h1 Our Proprietary Data Analytics<br>and Visualization Platform    
 
-    .infravieu__banner__app-links 
+    .infravieu__banner__app-links(data-animation='fromOpacity' data-delay='400')
       include ./../app-links/index.pug
 
     .infravieu__banner__mokup
       .infravieu__banner__mokup__holder
-        //- include ./../../assets/images/macbook-mokup.svg
+        include ./../../assets/images/mokups/macbook.svg

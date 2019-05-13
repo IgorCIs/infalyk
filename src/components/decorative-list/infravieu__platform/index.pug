@@ -46,19 +46,19 @@ include ./../../../layouts/section.pug
 +section({ title: 'infravieu<br>platform', className: 'decorative-list infravieu__platform', color: 'dark' })
   .decorative-list__wrapper.wrapper
     .decorative-list__text
-      h2.decorative-list__title InfaVIEU
-      ul.decorative-list__list.list
+      h2.decorative-list__title(data-animation='articleTitleLeft') InfaVIEU
+      ul.decorative-list__list.list(data-animation='articleTitleLeft' data-delay='200')
         each item in dataPlatform
           li.list__item!=item.title
 
-    .decorative-list__image
+    .decorative-list__image(data-animation='articleTitleRight')
       include ./infravieu.svg
 
 +section({ className: 'decorative-list decorative-list_reverse infravieu__overview', color: 'dark' })
   .decorative-list__wrapper.wrapper
     .decorative-list__text
-      h2.decorative-list__title Platform Overview &<br>Capabilities
-      ul.decorative-list__list.list
+      h2.decorative-list__title(data-animation='articleTitleRight') Platform Overview &<br>Capabilities
+      ul.decorative-list__list.list(data-animation='articleTitleRight' data-delay='200')
         each item in dataOverview
           - if (item.list)
             li.list__item.list__item_has-sublist!=item.title
@@ -69,5 +69,5 @@ include ./../../../layouts/section.pug
           - else 
             li.list__item!=item.title
 
-    .decorative-list__image
+    .decorative-list__image(data-animation='articleTitleLeft')
       include ./overview.svg

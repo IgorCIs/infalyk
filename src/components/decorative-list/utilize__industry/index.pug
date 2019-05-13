@@ -3,8 +3,8 @@ include ./../../../layouts/section.pug
 +section({ title: 'Industry<br> & Expertise', className: 'utilize__industry decorative-list', color: 'dark',})
   .decorative-list__wrapper.wrapper
     .decorative-list__text
-      .decorative-list__title.title InfraLytiks  <br> Industry Expertise
-      ul.decorative-list__list.list
+      .decorative-list__title.title(data-animation='articleTitleLeft') InfraLytiks  <br> Industry Expertise
+      ul.decorative-list__list.list(data-animation='articleTitleLeft' data-delay='400')
         each item in ['Market Active With Clients Including Fortune 500 Companies', 'Specialized in Data Analytics, Artificial Intelligence and Automation!', 'Ability to white-label and license our data analytics and visualization platforms for client internal use', 'All processes hosted on cloud services and fully automated']
           li.list__item=item
 

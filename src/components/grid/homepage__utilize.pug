@@ -30,8 +30,10 @@ include ./../../layouts/section.pug
 
 +section({title: 'When to Utilize<br> InfraLytiks', className: 'grid-section homepage__utilize'})
   .grid-section__wrapper
-    each item in data
-      .grid-section__item
+    - for(let i = 0; i < data.length; i++)
+      - const item = data[i]
+      - const alpha = i < 3 ? i : i - 3
+      .grid-section__item(data-animation='fromOpacity' data-delay=`${400*alpha}`)
         .grid-section__item__wrapper
           .grid-section__item__header-icon
             div(class=item.icon)

@@ -1,6 +1,9 @@
 include ./../../layouts/section.pug
 
-+section({ title: '', className: 'section_grey relevant__banner' })
+- 
+  const animation = '<div id="home-banner"> </div>'
+
++section({ title: '', className: 'section_grey relevant__banner', bg: animation })
   .lidar__banner__wrapper.wrapper
     .lidar__banner__title(style='padding-bottom: 30px') 
       h1 Relevant<br>Applications

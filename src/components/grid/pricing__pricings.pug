@@ -36,10 +36,12 @@ include ./../../layouts/section.pug
 
 +section({title: 'InfraLytiks<br> pricing', className: 'grid-section pricing__pricings'})
   .grid-section__wrapper
-    each item in data
-      .grid-section__item
-        .grid-section__item__wrapper
-          .grid-section__item__header-icon
-            div(class=item.icon)
-            .grid-section__item__header-title=item.headerTitle
-          .grid-section__item__text=item.text
+    - for(let i = 0; i < data.length; i++)
+      - const item = data[i] 
+      - const alpha = i < 3 ? i : i - 3
+        .grid-section__item(data-animation='fromOpacity' data-delay=`${alpha * 300}`)
+          .grid-section__item__wrapper
+            .grid-section__item__header-icon
+              div(class=item.icon)
+              .grid-section__item__header-title=item.headerTitle
+            .grid-section__item__text=item.text

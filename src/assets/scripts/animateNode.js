@@ -47,6 +47,38 @@ const animations = {
       translateX: 0,
       duration: 1500
     },
+  ],
+  rightTitle: [
+    {
+      translateX: 100,
+      duration: 0
+    },
+    {
+      translateX: 0,
+      duration: 1500
+    },
+  ],
+  articleTitleLeft: [
+    {
+      translateX: -50,
+      opacity: 0
+    },
+    {
+      translateX: 0,
+      opacity: 1,
+      duration: 1500
+    },
+  ],
+  articleTitleRight: [
+    {
+      translateX: 50,
+      opacity: 0
+    },
+    {
+      translateX: 0,
+      opacity: 1,
+      duration: 1500
+    },
   ]
 }
 
@@ -79,7 +111,7 @@ export default () => {
   elementsForAnimation.forEach(element => {
     if (ANIMATE_ENABLED) {
       !element.dataset.instant && initNode(element, element.dataset.animation)
-      appear(element, () => animateNode(element, element.dataset.animation, element.dataset.instant, element.dataset.delay), {bottom: 100, left: 100})
+      appear(element, () => animateNode(element, element.dataset.animation, element.dataset.instant, element.dataset.delay), {bottom: 100, left: 100, right: 100})
     } 
   })
 }

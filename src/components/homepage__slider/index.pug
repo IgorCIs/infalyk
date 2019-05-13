@@ -10,7 +10,7 @@ include ./../../layouts/section.pug
 
 +section({ sliderButtons: true, className: 'homepage__slider', color: 'dark',})
   .homepage__slider__wrapper
-    .homepage__slider__list#homepage-slider
+    .homepage__slider__list#homepage-slider(data-animation='fromOpacity')
       each item in sliderData
         .homepage__slider__item
           .homepage__slider__item__wrapper
