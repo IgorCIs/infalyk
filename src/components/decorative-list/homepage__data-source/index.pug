@@ -1,6 +1,6 @@
 include ./../../../layouts/section.pug
 
-+section({ className: 'homepage__data-source decorative-list decorative-list_reverse', color: 'dark' })
++section({ className: 'homepage__data-source  decorative-list decorative-list_reverse', color: 'dark' })
   .decorative-list__wrapper.wrapper
     .decorative-list__text
       .decorative-list__title.title(data-animation='articleTitleRight') Data Source <br> Include
@@ -11,16 +11,15 @@ include ./../../../layouts/section.pug
           li.list__item=item
 
     .decorative-list__image(data-animation='articleTitleLeft' data-dekay='600')
-      #data-source-svg.data-source-svg
+      #data-source-svg.data-source-svg(data-apear='animate')
         .data-source-svg__bg
           include ./img/bg-2.svg
 
-        .data-source-svg__item
-          include ./img/drone.svg
+          .data-source-svg__item
+            include ./img/drone.svg
 
-        .data-source-svg__item
-          include ./img/plane.svg
+          .data-source-svg__item
+            include ./img/plane.svg
 
-        .data-source-svg__item
-          include ./img/_satellite-15.svg
-    
+          .data-source-svg__item
+            include ./img/_satellite-15.svg   

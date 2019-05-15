@@ -1,4 +1,4 @@
-const isInViewport = function (element, offset) {
+const isInViewport = function (element, offset = {}) {
   const bounding = element.getBoundingClientRect();
   return (
       bounding.top >= -10  &&

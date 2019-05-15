@@ -25,6 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   Applications()
   Header()
   HomepageBanner()
-  new Cocoen(document.querySelector('.cocoen'))
+  if(document.querySelector('.cocoen')) new Cocoen(document.querySelector('.cocoen'))
   new Popups()
 })

@@ -109,6 +109,10 @@ export default () => {
       !element.dataset.instant && initNode(element, element.dataset.animation)
       appear(element, () => animateNode(element, element.dataset.animation, element.dataset.instant, element.dataset.delay), {bottom: -150, left: 100, right: 100})
     } 
+  });
+
+  [...document.querySelectorAll('[data-apear]')].forEach(element => {
+    appear(element, () => element.classList.add(element.dataset.apear))
   })
 }
 
