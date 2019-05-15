@@ -25,7 +25,12 @@ include ./../../layouts/section.pug
         '<b> Our client needed </b> to know if commercial roofs had water under the roof membrane.  Their process was to walk the roof looking for visual cues, or find leaks in the ceiling indoors. ',
         '<b> The InfraLytiks Solution </b> was to use a drone equipped with a highly accurate IR Thermal Camera/HD cameral to fly the roof at sunset.  The thermal sensor was able to detect thermal anomalies indicating likely water penetration.  The roofing client then drilled core samples to verify the presence of moisture and allow us to calibrate for actual moisture vs. false positives. ' 
       ],
-      img: require('./assets/images/cases/3.jpg')
+      img: require('./assets/images/cases/3.jpg'),
+      frame: `
+      <div class="cocoen">
+        <img src="${require('./assets/images/compare/1.jpeg')}" alt="">
+        <img src="${require('./assets/images/compare/2.jpeg')}" alt="">
+      </div>`
     },
     {
       title: 'Commercial Building Triage Case Study',
@@ -58,4 +63,8 @@ include ./../../layouts/section.pug
               p!=i
 
           .article-column__item__image(data-animation='fromOpacity')
-            img(src=item.img)
+            -if(item.frame)
+              div!=item.frame
+            -else
+              img(src=item.img)
+

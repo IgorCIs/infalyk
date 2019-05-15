@@ -15,7 +15,6 @@ export default () => {
   const titles = document.querySelectorAll('#decorative-slider-titles li')
   
   if (slider.length) {
-    
     if (titles.length) {
       titles[slickConfig.initialSlide].classList.add('active')
       slider.on('beforeChange', (_, __, ___, nextSlide) => {

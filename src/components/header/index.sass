@@ -8,6 +8,11 @@
   background: $grey
   transition: all .6s
 
+  .bg-container
+    width: calc(100% - 145px)
+    right: 0
+    left: unset
+
   &.sticky
     top: 0
 
@@ -52,7 +57,7 @@
         flex-direction: column
         position: relative
 
-        &.active
+        +hover
           .header__nav__item__list
             opacity: 1
             cursor: pointer
@@ -113,3 +118,9 @@
 
     a
       color: $whiteFont
+
+  &-white 
+    background: #ffffff
+
+    .header__nav__item__list
+      background: #ffffff

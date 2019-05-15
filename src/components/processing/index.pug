@@ -3,7 +3,7 @@ include ./../../layouts/section.pug
 -  
   const processingData = [
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-data-collection_icon',
       title: 'Data Collection',
       list: [
         'Multiple Vehicle Based Data Collection',
@@ -11,7 +11,7 @@ include ./../../layouts/section.pug
       ]
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-data-analytics-_icon',
       title: 'Data Analytics',
       list: [
         'Raw Data Processing',
@@ -20,7 +20,7 @@ include ./../../layouts/section.pug
       ]
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-data-visualization_icon',
       title: 'Data Visualization',
       list: [
         'Web-based Data Portal',
@@ -35,6 +35,10 @@ include ./../../layouts/section.pug
     - for(let i = 0; i < processingData.length; i++)
       - const item = processingData[i]
         .processing__item
+          - if(i === 1)
+            .decorative-shape.decorative-shape_dark
+              include ./../../assets/images/shape.svg
+
           .processing__item__wrapper
             .processing__item__header(data-same='processing-header' data-animation='fadeDownMini' data-delay=`${i * 500}`)
               .processing__item__icon(class=item.icon)

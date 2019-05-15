@@ -12,7 +12,6 @@ const animations = {
     {
       translateY: 0,
       opacity: 1,
-      easing: 'easeInOutExpo',
       duration: 1000
     }
   ],
@@ -35,7 +34,6 @@ const animations = {
     },
     {
       opacity: 1,
-      easing: 'easeInOutExpo'
     }
   ],
   leftTitle: [
@@ -82,23 +80,21 @@ const animations = {
   ]
 }
 
-
 const initNode = (node, animation) => {
   anime(Object.assign({
     targets: node,
-    duration: 0
+    duration: 0,
+    easing: 'easeOutQuint',
   }, animations[animation][0]))
 }
 
 const animateNode = (node, animation, instant = false, delay = 0) => {
-  const animationByName = animations[animation]
-
-  animationByName.forEach((an, i) => {
+  animations[animation].forEach((an, i) => {
     if (i > 0 || instant) {
       anime(Object.assign({
         targets: node,
         delay: delay,
-        easing: 'easeInOutExpo'
+        easing: 'easeOutQuint',
       }, an))
     } 
   })
@@ -111,8 +107,9 @@ export default () => {
   elementsForAnimation.forEach(element => {
     if (ANIMATE_ENABLED) {
       !element.dataset.instant && initNode(element, element.dataset.animation)
-      appear(element, () => animateNode(element, element.dataset.animation, element.dataset.instant, element.dataset.delay), {bottom: 100, left: 100, right: 100})
+      appear(element, () => animateNode(element, element.dataset.animation, element.dataset.instant, element.dataset.delay), {bottom: -150, left: 100, right: 100})
     } 
   })
 }
 
+  

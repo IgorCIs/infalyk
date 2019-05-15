@@ -3,12 +3,12 @@ include ./../../layouts/section.pug
 -  
   const relevantLastData = [
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-lidar_icon',
       headerTitle: 'Surveying Land & Flood',
       text: 'Large scale surveys are processed using our LiDAR technology and supporting proprietary algorithms, This provides very accurate dimensional data over a large area. Using Digital Elevation Models (DEMs), flood modelling is one of the many features that are available using the platform',
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-solar_icon',
       headerTitle: 'Solar',
       list: [
         'Roof algorithm for detecting where solar is best',
@@ -18,7 +18,7 @@ include ./../../layouts/section.pug
       ]
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-smart-cities_icon',
       headerTitle: 'Smart cities',
       list: [
         'Automation of image-based inspection and analysis for modeling all aspects of:',
@@ -32,19 +32,25 @@ include ./../../layouts/section.pug
     },
   ]
 
-+section({ className: 'grid-section relevant__primary pricing__pricings' })
++section({ className: 'grid-section  relevant__last pricing__pricings' })
   .grid-section__wrapper
-    each item in relevantLastData
-      .grid-section__item
-        .grid-section__item__wrapper
-          .grid-section__item__header-icon
-            div(class=item.icon)
-            .grid-section__item__header-title=item.headerTitle
-          - if (item.list)
-            .grid-section__item__text
-              .list.list_dark
-                each i in item.list
-                  .list__item=i
+    - for(let i = 0; i < relevantLastData.length; i++)
+      - const item = relevantLastData[i]
+        .grid-section__item
+          .grid-section__item__wrapper
+            .grid-section__item__header-icon
+              div(class=item.icon)
+              .grid-section__item__header-title=item.headerTitle
 
-          - else 
-            .grid-section__item__text=item.text
+            - if (item.list)
+              .grid-section__item__text
+                .list.list_dark
+                  each i in item.list
+                    .list__item=i
+
+            - else 
+              .grid-section__item__text=item.text
+
+              .decorative-shape.decorative-shape_dark
+                include ./../../assets/images/shape.svg
+

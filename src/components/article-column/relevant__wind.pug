@@ -9,7 +9,7 @@ include ./../../layouts/section.pug
         '<b> We can inspect </b> wind turbines in a more efficient and far safer manner than traditional inspection.',
         '<b> The data collected </b> is processed using our proprietary algorithms which help to make actionable decisions while being faster and more cost effective than traditional methods.',
       ],
-      img: require('./assets/images/cases/1.jpg')
+      img: require('./assets/images/relevant/1.jpg')
     },
     {
       title: 'Insurance – Underwriting &<br>Claims<br>Inspections',
@@ -21,7 +21,7 @@ include ./../../layouts/section.pug
           <li class=list__item> Automated valuation program uses feature extraction on structures to create estimates </li>
          </ul>`,
       ],
-      img: require('./assets/images/cases/1.jpg'),
+      img: require('./assets/images/relevant/2.jpg'),
       color: 'white'
     },
   ]
@@ -29,11 +29,14 @@ include ./../../layouts/section.pug
   const item = relevantWindData[0]
   const item2 = relevantWindData[1]
 
-+section({ className: 'cases__column article-column' })
++section({ className: 'cases__column article-column relevant__wind' })
   .article-column__wrapper
     .article-column__item(class=`${item.color ? item.color === 'white' ? 'article-column__item_white' : '' : ''}`)
       .article-column__item__title
         .title_dark.title!=item.title
+        .decorative-shape.decorative-shape_dark
+            include ./../../assets/images/shape.svg
+
 
       .article-column__item__content
         .article-column__item__text
@@ -43,11 +46,13 @@ include ./../../layouts/section.pug
         .article-column__item__image
           img(src=item.img)
 
-+section({ title: 'primary<br>applications', className: 'article-column_white cases__column  article-column' })
++section({ title: 'primary<br>applications', className: 'article-column_white relevant__primary-app cases__column  article-column' })
   .article-column__wrapper
     .article-column__item
       .article-column__item__title
         .title_dark.title!=item2.title
+        .decorative-shape.decorative-shape_dark
+          include ./../../assets/images/shape.svg
 
       .article-column__item__content
         .article-column__item__text
@@ -56,3 +61,6 @@ include ./../../layouts/section.pug
 
         .article-column__item__image
           img(src=item2.img)
+
+          .decorative-shape.decorative-shape_dark
+            include ./../../assets/images/shape.svg

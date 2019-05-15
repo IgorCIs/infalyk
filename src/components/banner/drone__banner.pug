@@ -13,11 +13,12 @@ include ./../../layouts/section.pug
         h1 Our App for <br> Drone Pilots & Clients
       .banner__descr(data-animation='fromOpacity' data-delay='400')
         .banner__descr__list
-          each item in ['Cross-Platform Application', 'Google Play Store – Apple Store – Web', 'Professional Drone Pilot Network', 'Basic – PRO – Enterprise Versions Available', 'Interface with <b class="bold-line"> InfraVIEU </b>']
-            .banner__descr__item!=item
+          each item in ['Cross-Platform Application', 'Google Play Store – Apple Store – Web', 'Professional Drone Pilot Network', 'Basic – PRO – Enterprise Versions Available', 'Interface with <span href="#" class="bold-line"> InfraVIEU </span>']
+            span
+              a(href='#').arrow-link.banner__descr__item!=item
 
       .banner__button(data-animation='fromOpacity' data-delay='700')
-        include ./../app-links/index
+        include ./../app-links/drone
 
     .banner__col.banner__col_img
       .banner__image(data-animation='rightTitle' data-delay='400')

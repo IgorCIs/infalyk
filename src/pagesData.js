@@ -1,5 +1,10 @@
 export default [
   {
+    text: 'Home',
+    href: './',
+    id: '0'
+  },
+  {
     text: 'Who We Are',
     href: './about.html',
     id: '1'
@@ -32,6 +37,10 @@ export default [
       {
         text: 'Applications',
         href: './cases.html',
+      },
+      {
+        text: 'Relevant applications',
+        href: './relevant.html',
       },
     ],
     id: '3'

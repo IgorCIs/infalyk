@@ -1,9 +1,15 @@
-mixin section({ bgcontainer, container, className, title, color, sliderButtons, bg })
+mixin section({ relevantbg, bgcontainer, container, className, title, color, sliderButtons, bg, shape })
   .section(class=`${className} ${color ? `section_${color}` : '' }`)
     .section__bg!=bg
-    .aside(data-animation='leftTitle')
+
+    - if(shape) 
+      .decorative-shape(class=`decorative-shape_${shape}`)
+        include ./../assets/images/shape.svg
+        
+    .aside 
       - if (title)
-        h7!=title
+        h7
+          span(data-animation='leftTitle')!=title
 
       - if (sliderButtons)
         .homepage__slider__buttons

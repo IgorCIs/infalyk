@@ -1,12 +1,14 @@
 include ./../../layouts/section.pug
 
-- 
-  const animation = '<div id="home-banner"> </div>'
-
-+section({ title: '', className: 'section_grey relevant__banner', bg: animation })
+-
++section({ title: '', className: 'section_grey relevant__banner' })
   .lidar__banner__wrapper.wrapper
-    .lidar__banner__title(style='padding-bottom: 30px') 
-      h1 Relevant<br>Applications
+    .lidar__banner__text
+      .lidar__banner__title(style='padding-bottom: 30px') 
+        h1 Relevant<br>Applications
 
-    .lidar__banner__subtitle
-      p We collect, analyze and<br>visualize your data!
+      .lidar__banner__subtitle
+        p We collect, analyze and<br>visualize your data!
+
+    .lidar__banner__image
+      include ./../../assets/images/relevant/bg.svg

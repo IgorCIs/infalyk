@@ -3,32 +3,32 @@ include ./../../layouts/section.pug
 -  
   const data = [
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-data-analytics-_icon',
       text: 'We are a Market Driven Company—we believe in performing to continue to earn your business, so our contracts are not long and binding.  ',
       headerTitle: 'Market Driven Company'
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-step_icon',
       text: 'We quote in advance, on a project basis with milestones and we typically get paid upon completion of each milestone, so you don’t have to wait to the end of a project to see what we’ve accomplished for you.',
       headerTitle: 'Step by step'
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-data-experience_icon',
       text: 'Our expertise means we can pull from our experience to efficiently create Machine Learning algorithms or appropriate analytics foryour project.',
       headerTitle: 'Experience'
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-users_icon',
       text: 'Our clients tell us they were ready to give up on Machine Learning until they found us and we delivered On Time and On Budget.  ',
       headerTitle: 'Time and Budget'
     },
     {
-      icon: 'icon-camera_icon',
-      text: 'Our clients tell us they were ready to give up on Machine Learning until they found us and we delivered On Time and On Budget.  ',
-      headerTitle: 'Time and Budget'
+      icon: 'icon-document_icon',
+      text: 'Our goal is to do the “First Project” with you to earn your business for future projects as well.  Once we prove ourselves, clients typically have a lineup of projects in mind. ',
+      headerTitle: '“First Project”'
     },
     { 
-      icon: 'icon-camera_icon',
+      icon: 'icon-money_icon',
       text: 'We excel in being very efficient and therefore affordable.',
       headerTitle: 'We excel'
     },
@@ -36,6 +36,9 @@ include ./../../layouts/section.pug
 
 +section({title: 'InfraLytiks<br> pricing', className: 'grid-section pricing__pricings'})
   .grid-section__wrapper
+    .decorative-shape.decorative-shape_dark
+      include ./../../assets/images/shape.svg
+
     - for(let i = 0; i < data.length; i++)
       - const item = data[i] 
       - const alpha = i < 3 ? i : i - 3

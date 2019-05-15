@@ -2,6 +2,32 @@ extends ./layouts/master
 
 block title
   title Infalytiks - infavieu
+  
+block header
+  .header.header-white.sticky
+    .header__wrapper.wrapper
+      a(href="./").header__logo
+        .header__logo__img
+          include ./assets/images/logo.svg
+
+      nav.header__nav
+        .header__nav__list
+        each item in require('./pagesData.js').default
+          - if (item.list)
+            .header__nav__item.header__nav__item_has-child(data-trigger-self='nav-'+item.id)
+              .header__nav__item__title(data-trigger-target='nav-'+item.id)=item.text
+              .header__nav__item__list
+                each i in item.list
+                  a(href=i.href).header__nav__item__list-item.header__nav__item__title=i.text
+          - else 
+            .header__nav__item
+              .header__nav__item__title
+                a(href=item.href)=item.text
+
+            
+
+      .header__button
+        a(href="#").heaeder__button__link.btn.btn_color_grey get in touch
 
 block content
   main.infavieu

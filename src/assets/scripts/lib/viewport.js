@@ -3,7 +3,7 @@ const isInViewport = function (element, offset) {
   return (
       bounding.top >= -10  &&
       bounding.left + (offset.left || 0) >= 0 &&
-      bounding.bottom <= (window.innerHeight - (offset.top || 0) || document.documentElement.clientHeight) &&
+      bounding.bottom <= (window.innerHeight - (offset.bottom || 0) || document.documentElement.clientHeight) &&
       bounding.right - (offset.right || 0) <= (window.innerWidth || document.documentElement.clientWidth)
   )
 }

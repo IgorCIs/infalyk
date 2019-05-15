@@ -1,6 +1,6 @@
 include  ./../../layouts/section
 
-+section({ className: 'applications', title: 'Our Platforms &<br> Applications' })
++section({ className: 'applications', shape: 'dark', title: 'Our Platforms &<br> Applications' })
   .applications__wrapper.wrapper
     - const data = require('./components/applications/data.js').default
     - for(let i = 0; i < data.length; i++) 
@@ -9,8 +9,14 @@ include  ./../../layouts/section
         .applications__item__wrapper
           .applications__item__image(data-animation='fromOpacity')
             - if(item.image === 'drone')
-              include ./img/logo_drone.svg
-              
+              include ./../../assets/images/logos/drone.svg
+            
+            - else if(item.image === 'vieu') 
+              include ./../../assets/images/logos/infra.svg
+
+            - else if(item.image === 'lidar')
+              include ./../../assets/images/logos/lidar.svg
+
           .applications__item__title(data-animation='fadeDownMini')!=item.title
           .applications__item__descr(data-animation='fromOpacity' data-delay='200')
             each i in item.descr

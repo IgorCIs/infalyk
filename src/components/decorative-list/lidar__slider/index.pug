@@ -19,6 +19,8 @@ include ./../../../layouts/section.pug
 +section({ className: 'decorative-list decorative-list_reverse infravieu__features lidar__slider', color: 'dark' })
   .decorative-list__wrapper.wrapper
     .decorative-list__text
+      .decorative-shape(class=`decorative-shape_${shape}`)
+        include ./../../../assets/images/shape.svg
       .decorative-list__title.title(data-animation='articleTitleRight') Infralytiks LiDAR Data Processing Algorithm
       ul.decorative-list__list.list(data-animation='articleTitleRight' data-delay='300')
         each item in lidarSliderData
@@ -28,4 +30,9 @@ include ./../../../layouts/section.pug
       .decorative-list__slider#decorative-slider
         each i in [1,2,3,4,5,6,7,8]
           .decorative-list__slider__item
-            img(src=require('./assets/images/cases/1.jpg'), alt="")
+            .decorative-list__slider__decorate
+              .decorative-list__slider__decorate__item.item_yellow
+              .decorative-list__slider__decorate__item.item_red
+              .decorative-list__slider__decorate__item.item_green
+              .decorative-list__slider__decorate__item.item_text http//infalytiks.com
+            img(src=require(`./assets/images/lidar/${i}.jpg`), alt="")

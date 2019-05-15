@@ -1,6 +1,20 @@
+.homepage__data-source
+  .decorative-shape
+    top: -100px
+    right: -30px
+  
+  .decorative-list
+    &__text
+      width: 100%
+    
+
 .data-source-svg
   position: relative
   // max-width: 470px
+
+  &__bg
+    svg
+      max-width: 550px
 
   &__item
     position: absolute
@@ -10,18 +24,18 @@
     height: 24%
     opacity: 0
     animation: flight 2s linear 0s
+    display: none
     
-    svg
-      width: 100%
+ 
       
     
     &+.data-source-svg__item
-      animation: flight 2s linear 1.5s 
-      left: 24%
+      // animation: flight 2s linear 1.5s 
+      // left: 24%
 
       &+.data-source-svg__item
-        animation: finalFlight 2s linear 3s 
-        animation-fill-mode: forwards
+          animation: finalFlight 2s linear 3s 
+          animation-fill-mode: forwards
 
 
 @keyframes finalFlight 

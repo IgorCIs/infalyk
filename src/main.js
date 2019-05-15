@@ -11,6 +11,7 @@ import DronePilotSlider from './components/decorative-list/drone__pilot-features
 import DroneClientSlider from './components/decorative-list/drone__client-features';
 import AnimateNode from './assets/scripts/animateNode';
 import Loader from './assets/scripts/loader';
+import Cocoen from 'cocoen'
 
 document.addEventListener("DOMContentLoaded", () => {
   SameHeight()
@@ -24,6 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   Applications()
   Header()
   HomepageBanner()
-  
+  new Cocoen(document.querySelector('.cocoen'))
   new Popups()
 })

@@ -3,6 +3,11 @@
   background-color: #F1F2F4;
   display: flex
   color: $backgroundDark
+
+  .decorative-shape
+    right: -30px
+    bottom: 0
+  
   &__wrapper
     padding: 20px 0
 
@@ -21,6 +26,7 @@
     &__wrapper
       padding: 62px 40px 54px
       border-radius: 8px
+      transition: all .3s
 
     &__title
       $lineHeight: 30px
@@ -36,6 +42,9 @@
         margin: 16px 0 0
         color: inherit
         display: block
+        
+      &__item
+        display: flex
         
       p
         font-size: 16px
@@ -87,7 +96,7 @@
           display: flex
         
 
-    &.active
+    +hover
       .applications__item__wrapper
         box-shadow: 0 12px 20px -5px rgba(0,0,0,0.15);
         background-color: $white  

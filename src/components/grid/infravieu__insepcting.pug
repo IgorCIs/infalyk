@@ -1,22 +1,22 @@
 include ./../../layouts/section.pug
 
--  
+-   
   const data = [
     {
       icon: 'icon-camera_icon',
       text: 'Defect & Anomaly<br>Detection'
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-structure_icon',
       text: 'Building & Structure<br>Classification'
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-ruler_icon',
       text: 'Automated Measurements<br>of Structures'
     },
   ]
 
-+section({title: 'Enable Automated<br>Inspectins', className: 'grid-section infravieu__insepcting'})
++section({title: 'Enable Automated<br>Inspectins', className: 'grid-section infravieu__insepcting', shape: 'dark'})
   .grid-section__wrapper
     - for(let i = 0; i < data.length; i++)
       - const item = data[i]

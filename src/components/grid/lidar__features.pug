@@ -3,27 +3,27 @@ include ./../../layouts/section.pug
 -  
   const data = [
     {
-      icon: 'icon-camera_icon',
-      text: 'Cost-Effective Drone LiDAR Data Processing System'
+      icon: 'icon-drone_icon',
+      text: 'Cost-Effective Drone <br> LiDAR Data Processing System'
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-lidar_icon',
       text: 'Uses off-the-shelf Components and Relies on advanced algorithms for High Quality Data Alignment'
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-data-cloud_icon',
       text: 'Fine Data Alignment Process done on Cloud Computing Servers'
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-process_icon',
       text: 'On-Board Alignment Process Handled by Raspberry Pi'
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-data-alignment_icon',
       text: 'High Precision Data Alignment Algorithm with +/-5 cm error Map Output'
     },
     {
-      icon: 'icon-camera_icon',
+      icon: 'icon-mobile-platforms_icon',
       text: 'Algorithm can be customized for any professional mobile platforms - automobiles, drones, bikes or handheld'
     },
   ]
@@ -37,4 +37,4 @@ include ./../../layouts/section.pug
           .grid-section__item__wrapper
             .grid-section__item__header-icon
               div(class=item.icon)
-            .grid-section__item__text=item.text
+            .grid-section__item__text!=item.text

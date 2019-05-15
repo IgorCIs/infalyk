@@ -2,17 +2,17 @@ export default [
     {
       title: 'Our data analytics <br> and visualization <br> platform',
       descr: [
-        '<a href="#"> Web Based Platform </a>',
-        '<a href="#"> Data Manipulation Tools </a>',
-        '<a href="#"> Multi-Spectral Data Analysis </a>',
-        '<a href="#"> ML & AI based Analytics </a>',
+        '<a class="arrow-link" href="#"> Web Based Platform </a>',
+        '<a class="arrow-link" href="#"> Data Manipulation Tools </a>',
+        '<a class="arrow-link" href="#"> Multi-Spectral Data Analysis </a>',
+        '<a class="arrow-link" href="#"> ML & AI based Analytics </a>',
       ],
       links: [
         'login',
         'learn more'
       ],
       also: true,
-      image: 'drone'
+      image: 'vieu'
     },
     {
       title: 'Universal <br> Mobile LiDAR Data <br> Processing Algorithm',
@@ -23,18 +23,17 @@ export default [
         null,
         'learn more'
       ],
-      active: true, 
-      image: 'drone'
+      image: 'lidar'
 
     },
     {
       title: 'Our app for <br> drone pilots & <br> clients ',
       descr: [
-        '<a href="#">Cross-Platform Application</a>',
-        '<a href="#">Google Play Store – Apple Store – Web</a>',
-        '<a href="#">Professional Drone Pilot Network</a>' ,
-        '<a href="#">Basic – PRO – Enterprise Versions Available </a>',
-        '<a href="#">Interface with <span> InfraVIEU </span> </a>',
+        '<a class="arrow-link" href="#">Cross-Platform Application</a>',
+        '<a class="arrow-link" href="#">Google Play Store – Apple Store – Web</a>',
+        '<a class="arrow-link" href="#">Professional Drone Pilot Network</a>' ,
+        '<a class="arrow-link" href="#">Basic – PRO – Enterprise Versions Available </a>',
+        '<a class="arrow-link" href="#">Interface with <span class="bold-line"> InfraVIEU </span> </a>',
       ],
       links: [
         'login',
@@ -42,6 +41,6 @@ export default [
       ],
       also: true,
       image: 'drone'
-
+    
     },
   ]

@@ -1,31 +1,18 @@
 
-const Trigger = () => {
-    const triggers = document.querySelectorAll('[data-trigger-target]');
-    
-    [...triggers].forEach((trigger, target) => new TriggerItem(trigger));
-
-    const wpNavs = document.querySelectorAll('.page_item_has_children')
-    const wpNavsTragets = document.querySelectorAll('.page_item_has_children .children');
-    const wpNavsTitleLinks = document.querySelectorAll('.page_item_has_children>a');
-
-    [...wpNavs].forEach((item, i) => {
-        new TriggerItem(item, wpNavsTragets[i])
-        wpNavsTitleLinks[i].addEventListener('click', e => e.preventDefault())
-    })
+const Trigger = () => { 
+    [...document.querySelectorAll('[data-trigger-target]')]
+        .forEach((trigger, target) => new TriggerItem(trigger));
 }  
 
-class TriggerItem {
+export class TriggerItem {
     constructor(element, target) {
         this.element = element;
         this.event = element.dataset.triggerEvent || 'click';
 
         this.target = element.dataset.triggerTarget;
-        this.targetElements = document.querySelectorAll(`[data-trigger-self="${this.target}"]`) || target;
-
-        if (!this.target) this.targetElements = [element];
+        this.targetElements = document.querySelectorAll(`[data-trigger-self="${this.target}"]`) || target || [element];
 
         this.triggerTargets();
-
     }
 
     triggerTargets() {
