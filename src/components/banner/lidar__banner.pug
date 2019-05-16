@@ -1,12 +1,14 @@
 include ./../../layouts/section.pug
 
 - 
-  const animation = '<div id="home-banne"> </div>'
+  const animation = '<div id="home-banner" data-pos="lidar"> </div>'
 
-+section({ title: '', className: 'section_dark lidar__banner', bg: animation})
++section({ nolines: true, title: '', className: 'section_dark  lidar__banner', bg: animation })
   .lidar__banner__wrapper.wrapper
-    .lidar__banner__title(data-animation='fadeDown')
-      h1 LiDAR NOW
 
-    .lidar__banner__subtitle(data-animation='leftTitle')
-      p Universal Mobile LiDAR Data Processing Algorithm
+    .lidar__banner__text
+      .lidar__banner__title(data-animation='fadeDown')
+        h1 LiDAR NOW
+
+      .lidar__banner__subtitle(data-animation='leftTitle')
+        p Universal Mobile LiDAR Data Processing Algorithm

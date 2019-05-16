@@ -13,8 +13,13 @@
   .column
     flex: 1 0
 
+    &.links
+      .column__list 
+        column-count: 2
+
     &_fullwidth
       margin-top: 45px
+      flex-direction: column
       width: 100%
       flex: unset
       font-size: 12px
@@ -25,10 +30,12 @@
       font-weight: 600  
 
     &__list
+
       &__item
         line-height: 34px
 
     &__subscription
+
       &__title
         line-height: 20px
 
@@ -60,6 +67,8 @@
   
     &__disclaimer
       flex: 2 0
+      order: -1
+      margin-bottom: 15px
       // margin-left: -30px
       justify-content: flex-start
       

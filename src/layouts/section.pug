@@ -1,4 +1,4 @@
-mixin section({ relevantbg, bgcontainer, container, className, title, color, sliderButtons, bg, shape })
+mixin section({ nolines, relevantbg, bgcontainer, container, className, title, color, sliderButtons, bg, shape })
   .section(class=`${className} ${color ? `section_${color}` : '' }`)
     .section__bg!=bg
 
@@ -20,16 +20,17 @@ mixin section({ relevantbg, bgcontainer, container, className, title, color, sli
 
 
     .section__wrapper(class=`${container ? 'container_'+container : 'container' }`)
-      - if (bgcontainer)
-        .bg-container
-          div.line
-          div.line
-          div.line
+      - if (!nolines)
+        - if (bgcontainer)
+          .bg-container
+            div.line
+            div.line
+            div.line
 
-      - else 
-          div.line
-          div.line
-          div.line
+        - else 
+            div.line
+            div.line
+            div.line
 
       .section__contnent
         block 

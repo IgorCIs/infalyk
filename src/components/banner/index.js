@@ -23,19 +23,18 @@ export default !container ? f=>f : () => {
   // controls = new TrackBall(camera, renderer.domElement)
   // controls2 = new OrbitControls(camera, renderer.domElement)
 
-  camera.position.x = -2315.6468128168212;
-  camera.position.y = 802.6070010631422;
-  camera.position.z  = 1121.3402231101422;
+  if(container.dataset.pos === 'lidar') {
+    camera.position.set(376.7678054736148,586.9279005699927, 399.8183059408734)
+  } else {
+    camera.position.x = -2315.6468128168212;
+    camera.position.y = 802.6070010631422;
+    camera.position.z  = 1121.3402231101422;
+  }
 
-  
-  // controls.rotateSpeed = 1.0;
-  // controls.zoomSpeed = 1.2;
-  // controls.panSpeed = 0.8;
-  // controls.noZoom = false;
-  // controls.noPan = false;
-  // controls.staticMoving = true;
-  // controls.dynamicDampingFactor = 0.3;
-  // controls.keys = [ 65, 83, 68 ];
+
+  window.pos = () => {
+    console.log(camera.position)
+  }
 
   let particles;
   let xSpace = 1, ySpace = 1;
@@ -70,7 +69,7 @@ export default !container ? f=>f : () => {
 
         attribute float scale;
         varying float distanceToCamera;
-
+      
         float distanceBetweenVec3( vec3 v1, vec3 v2 ){  
           float dx = v1.x - v2.x;
           float dy = v1.y - v2.y;
@@ -91,9 +90,9 @@ export default !container ? f=>f : () => {
 
           if( distanceToCamera > clearDistance ){
             transparency = 1. - atan( (distanceToCamera - clearDistance) / clearDistance) / 1.6;
-            gl_PointSize = (1. + 18.0 * ( 130.0 / - mvPosition.z )) * transparency;
+            gl_PointSize = ${container.dataset.pos !== 'lidar' ? '(1. + 18.0 * ( 130.0 / - mvPosition.z )) * transparency' : '2.0'};
           } else { 
-            gl_PointSize = 1. + 18.0 * ( 130.0 / - mvPosition.z );
+            gl_PointSize = ${container.dataset.pos !== 'lidar' ? '1. + 18.0 * ( 130.0 / - mvPosition.z ) * transparency' : '2.0'};
           }
           
         }
@@ -116,18 +115,15 @@ export default !container ? f=>f : () => {
         }
       `
     });
-    //
+
     particles = new THREE.Points( geometry, material );
     
     scene.add( particles );
-    // scene.add( sphere );
-    //
+
     renderer.setPixelRatio( container.devicePixelRatio );
     renderer.setSize( container.offsetWidth, container.offsetHeight );
     container.appendChild( renderer.domElement );
     
-    document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-    //
     container.addEventListener( 'resize', onWindowResize, false );
   }
   
@@ -137,11 +133,6 @@ export default !container ? f=>f : () => {
     camera.aspect = container.offsetWidth / container.offsetHeight;
     camera.updateProjectionMatrix();
     renderer.setSize( container.offsetWidth, container.offsetHeight );
-  }
-
-  const onDocumentMouseMove = event => {
-    mouseX = event.clientX - windowHalfX;
-    mouseY = event.clientY - windowHalfY;
   }
 
   const animate = () => {

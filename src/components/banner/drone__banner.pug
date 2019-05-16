@@ -4,7 +4,7 @@ include ./../../layouts/section.pug
   const animation = '<div id="home-banner"> </div>'
 
 //- +section({ className: ' drone__banner banner', bg: animation, color: 'grey', container: 'left', bgcontainer: true })
-+section({ className: ' drone__banner banner', bg: animation, color: 'grey' })
++section({ nolines: true, className: ' drone__banner banner', bg: animation, color: 'grey' })
   .banner__wrapper.banner__wrapper_row
     .banner__col
       .banner__logo(data-animation='fadeDown')

@@ -3,7 +3,7 @@ include ./../../layouts/section.pug
 - 
   const animation = '<div id="home-banner"> </div>'
   
-+section({ className: 'pricing__banner banner banner_centered', bg: animation })
++section({ nolines: true, className: 'pricing__banner banner banner_centered', bg: animation })
   .banner__wrapper
     .banner__title(data-animation='fadeDown')
       span.grey-text Pricing

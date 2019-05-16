@@ -3,7 +3,7 @@ include ./../../layouts/section.pug
 - 
   const animation = '<div id="home-banner"> </div>'
 
-+section({ className: 'utilize__banner banner', bg: animation })
++section({ nolines: true, className: 'utilize__banner banner', bg: animation })
   .banner__wrapper
     .banner__title(data-animation='fadeDown') When to Utilize <br> InfraLytiks
     .banner__descr(data-animation='leftTitle' data-delay='200') Learn about our Industry Expertise!

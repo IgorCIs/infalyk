@@ -13,7 +13,7 @@ export default [
     text: 'What We Do',
     list: [
       {
-        text: 'Infravieu',
+        text: 'InfraVieu',
         href: './infravieu.html'
       },
       {
@@ -32,10 +32,10 @@ export default [
     id: '2'
   },
   {
-    text: 'Case Studies',
+    text: 'Applications',
     list: [
       {
-        text: 'Applications',
+        text: 'Case Studies',
         href: './cases.html',
       },
       {
@@ -47,17 +47,7 @@ export default [
   },
   {
     text: 'Testimonials',
-    list: [
-      {
-        text: 'About us',
-        href: './about.html',
-      },
-      {
-        text: 'Testimonials',
-        href: './testimonials.html',
-      },
-    ],
-    id: '4'
+    href: './testimonials.html',
   },
   {
     text: 'Pricing',

@@ -3,7 +3,7 @@ include ./../../layouts/section.pug
 - 
   const animation = '<div id="home-banner"> <div class="banner-tip"> </div> </div>'
 
-+section({ className: 'homepage__banner banner', bg: animation })
++section({ className: 'homepage__banner banner', bg: animation, nolines: true })
   .banner__wrapper
     .banner__title(data-animation='fadeDown') Complex <span class='grey-text'>Data</span><br> Analytics and <br> Automation Company
     .banner__descr(data-animation='fromOpacity') We collect, analyze and<br> visualize your data!

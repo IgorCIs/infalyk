@@ -1,12 +1,27 @@
+-  
+  const disclaimer = [
+    ['Disclaimer', './'],
+    ['Terms of Use', './'],
+    ['Privacy Policy', './privacy.html'],
+  ]
+
+  const links = [
+    ['Who We Are', './about.html'],
+    ['What We do', './utilize.html'],
+    ['Case Studies', './cases.html'],
+    ['Testimonials', './testimonials.html'],
+    ['Pricing', './pricing.html'],
+  ]
+
 .footer
   .container_fullsize
     .wrapper
-      .column
+      .column.links            
         .column__title Quick Links
         .column__list
-          each item in ['InfaVieu', 'InfaDrone', 'Drone scanning may include', 'Primary applications']
+          each item in links
             .column__list__item
-              a(href="#")=item
+              a(href=item[1])=item[0]
   
       .column
         .column__title Contact Us
@@ -19,7 +34,7 @@
         .column__title Newsletter
         .column__subscription
           .column__subscription__title 
-            p If you would like to receive updates about new offers and discounts, sign up below
+            p If you would like to receive updates, sign up below
 
           .column__subscription__input.wrapper
             input(type="text" placeholder="Email Address")
@@ -28,7 +43,8 @@
 
       .column_fullwidth.wrapper
         .column__copyright ©InfraDrone, LLC dba InfraLytiks. All rights reserved.
+
         .column__disclaimer.wrapper
-          each item in ['Disclaimer', 'Terms of Use', 'Privacy Policy']
+          each item in disclaimer
             .column__disclaimer__item
-              a(href="./privacy.html")=item
+              a(href=item[1])=item[0]
