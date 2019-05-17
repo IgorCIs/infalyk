@@ -1,0 +1,9 @@
+include ./../../layouts/section.pug
+
+- 
+  const animation = '<div id="home-banner"> </div>'
+  
++section({ nolines: true, className: 'pricing__banner banner', bg: animation })
+  .banner__wrapper
+    .banner__title(data-animation='fadeDown') Terms Of Use
+    //- .banner__descr(data-animation='fadeDownMini') 

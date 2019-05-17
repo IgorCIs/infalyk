@@ -24,25 +24,25 @@ include  ./../../layouts/section
 
           .applications__item__buttons.wrapper
             - if (item.links[0])
-              a(href="#" data-animation='fromOpacity').btn.btn_color_grey=item.links[0]
+              a(href=item.links[0][1] data-animation='fromOpacity').btn.btn_color_grey=item.links[0][0]
             - if (item.links[1] )
-              a(href="#" data-animation='fromOpacity' data-delay='400').btn.btn_color_white=item.links[1]
+              a(href=item.links[1][1] data-animation='fromOpacity' data-delay='400').btn.btn_color_white=item.links[1][0]
 
           .applications__item__also
             - if (item.also)
               .applications__item__also__title(data-animation='fromOpacity') This app also in:
                 .applications__item__also__list
-                  a(href="#" data-animation='fromOpacity').applications__item__also__item
+                  a(href=item.also[0] data-animation='fromOpacity').applications__item__also__item
                     .icon
                       include ./../../assets/images/socials/android_icon.svg
                     .text Android
 
-                  a(href="#" data-animation='fromOpacity' data-delay='200').applications__item__also__item
+                  a(href=item.also[1] data-animation='fromOpacity' data-delay='200').applications__item__also__item
                     .icon
                       include ./../../assets/images/socials/ios_icon.svg
                     .text iOS
 
-                  a(href="#" data-animation='fromOpacity' data-delay='400').applications__item__also__item
+                  a(href=item.also[2] data-animation='fromOpacity' data-delay='400').applications__item__also__item
                     .icon
                       include ./../../assets/images/socials/web_icon.svg
                     .text Web

@@ -8,10 +8,10 @@ export default [
         '<a class="arrow-link" href="#"> ML & AI based Analytics </a>',
       ],
       links: [
-        'login',
-        'learn more'
+        ['login', 'https://www.infravieu.com/login'],
+        ['learn more', './infravieu.html']
       ],
-      also: true,
+      also: ['https://itunes.apple.com/us/app/infravieu/id1439911551?mt=8' ,'https://play.google.com/store/apps/details?id=app.infravieu&hl=ru','https://www.infravieu.com/'],
       image: 'vieu'
     },
     {
@@ -21,7 +21,7 @@ export default [
       ],
       links: [
         null,
-        'learn more'
+        ['learn more', './lidar.html']
       ],
       image: 'lidar'
 
@@ -36,10 +36,10 @@ export default [
         '<a class="arrow-link" href="#">Interface with <span class="bold-line"> InfraVIEU </span> </a>',
       ],
       links: [
-        'login',
-        'learn more'
+        ['login', 'http://infradrone.io/login'],
+        ['learn more', './infradrone.html']
       ],
-      also: true,
+      also: ['https://play.google.com/store/apps/details?id=com.infradrone', 'https://itunes.apple.com/us/app/infradrone/id1375305993', 'https://infradrone.io/'],
       image: 'drone'
     
     },

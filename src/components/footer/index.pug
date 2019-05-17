@@ -1,7 +1,7 @@
 -  
   const disclaimer = [
-    ['Disclaimer', './'],
-    ['Terms of Use', './'],
+    ['Disclaimer', './disclaimer.html'],
+    ['Terms of Use', './terms.html'],
     ['Privacy Policy', './privacy.html'],
   ]
 
@@ -26,9 +26,9 @@
       .column
         .column__title Contact Us
         .column__list
-          each item in ['InfraLytiks', 'Phone: +1 801-810-2920', 'Email: Contact@InfraLytiks.com']
+          each item in [['InfraLytiks', '#'], ['Phone: +1 801-810-2920', 'tel:+1 801-810-2920'] , ['Email: Contact@InfraLytiks.com', 'mailto:Contact@InfraLytiks.com']]
             .column__list__item
-              a(href="#")=item
+              a(href=item[1])=item[0]
 
       .column
         .column__title Newsletter

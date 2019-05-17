@@ -12,6 +12,7 @@ import DroneClientSlider from './components/decorative-list/drone__client-featur
 import AnimateNode from './assets/scripts/animateNode';
 import Loader from './assets/scripts/loader';
 import Cocoen from 'cocoen'
+import HomepageDataSource from './components/decorative-list/homepage__data-source'
 
 document.addEventListener("DOMContentLoaded", () => {
   SameHeight()
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   Applications()
   Header()
   HomepageBanner()
+  HomepageDataSource()
   if(document.querySelector('.cocoen')) new Cocoen(document.querySelector('.cocoen'))
   new Popups()
 })

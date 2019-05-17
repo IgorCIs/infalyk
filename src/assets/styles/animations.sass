@@ -66,3 +66,50 @@
   100%
     transform: translateY(-20px)
   
+
+.inf-platform
+  animation: round 10s linear infinite
+  offset-path: path('M176.5,137.2c66.8,0.7,120.7,33.2,120.2,72.6c-0.4,39.4-54.9,70.8-121.7,70.1S54.4,246.7,54.8,207.3  C55.2,167.9,109.7,136.5,176.5,137.2z')
+  offset-distance: 0%
+
+
+@keyframes round 
+  from 
+    offset-distance: 0%
+  
+  to 
+    offset-distance: 100%
+
+  
+  
+  
+.advantages-line
+
+
+
+.ai-line
+  fill: unset
+  stroke: rgb(13, 201, 168)
+  stroke-dasharray: 372
+  stroke-dashoffset: 0
+  animation: dash 10s linear infinite 
+
+
+@keyframes dash 
+  0%
+    stroke-dashoffset: 0
+
+  50%
+    stroke-dashoffset: 458
+
+  100%
+    stroke-dashoffset: 0
+
+
+.advantages-scale
+  transition: all .5s
+  transform: scale(0)
+
+.advantages-svg-animate
+  .advantages-scale
+    transform: scale(1)

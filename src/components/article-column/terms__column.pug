@@ -1,0 +1,116 @@
+include ./../../layouts/section.pug
+
+- 
+  const casesData = [
+    {
+      title: 'Terms Of Use',
+      text: [
+        'These Terms of Use describe the terms on which you may access InfraDrone Products ("InfraDrone Products"), which includes but is not limited to products created and/or owned by InfraDrone, LLC dba InfraLytiks such as this Website, a client login portal, phone applications, web applications, or other software.  Nothing contained herein shall be deemed to confer any third-party rights or benefits.  In the event you don’t agree to be bound by these Terms of Use, please do not access InfraDrone Products. '      
+      ]
+    },
+    {
+      title: 'Reservation Of Right',
+      text: [
+        'We reserve the right to modify these Terms of Use at any time, and without prior notice, by posting amended Terms of Use on this website. Your use of InfraDrone Products indicates your acceptance of any amended Terms of Use.',
+      ]
+    },
+    {
+      title: 'InfraDrone Products Acess Eligibility',
+      text: [
+        'Eligibility to use InfraDrone Products is not automatic, and all decisions regarding your eligibility to utilize InfraDrone Products are made solely and exclusively in the discretion of InfraDrone, LLC dba InfraLytiks, its affiliated and subsidiary companies, including subsidiaries of affiliated companies, an Iowa Limited Liability Company, ("InfraDrone").  You agree not to contest any eligibility determination made by InfraDrone.  ',
+      ]
+    },
+    {
+      title: 'InfraDrone Products Content',
+      text: [
+        'InfraDrone Products can be provided as a convenient method for authorized users to access documents related to services provided to you by InfraDrone.  Either you or InfraDrone may upload documents and materials to a restricted client account through InfraDrone Products functionality, however, you may only upload documents related to requested services to be provided, or services currently provided, by InfraDrone.  InfraDrone Products may not be used to back-up ordinary materials or other records maintained by the Client.  InfraDrone Products contain a variety of information and content, including (1) copyrighted material, such as information, text, graphics, images, processed data analysis, software, compilations, designs, and graphical interface; (2) trademarks, logos, service marks, and trade identities, whether registered or unregistered (“Trademarks”); and (3) other forms of information and intellectual property of InfraDrone (“Content”).'
+      ]
+    },
+    {
+      title: 'Ownership',
+      text: [
+        'All right, title, and interest in and to the Content, with the exception of data specifically excluded per the terms and conditions of a Client’s specific service agreement, survey agreement, or user agreement, available via InfraDrone Products is the property of InfraDrone, and is protected by U.S., and/or international copyright, trademark, patent, or other proprietary rights and laws.  You may not copy or otherwise use any of the Content except as expressly authorized by these Terms of Use, or as expressly provided by the licensing rights granted under the Client’s specific service agreement, survey agreement, or user agreement, as applicable.',
+      ]
+    },
+    {
+      title: 'InfraDrone Products Availability',
+      text: [
+        'While we strive to keep the Content of InfraDrone Products accurate, complete and up-to-date, we cannot and do not guarantee, represent or warrant that any of the Content is accurate, complete or applicable to you.  InfraDrone does not guarantee uninterrupted or error-free operation of InfraDrone Products or any portion thereof and will use reasonable efforts to maintain its operation and availability.'
+      ]
+    },
+    {
+      title: 'Scope Of Use',
+      text: [
+        'You agree to use InfraDrone Products solely for lawful purposes, and you agree that you shall at all times comply with all applicable laws, statutes, rules, regulations, ordinances, and the like applicable to your use of InfraDrone Products.  We grant you a non-exclusive, non-transferrable, revocable, limited license to view, download, copy, and print Content retrieved from InfraDrone Products only for your personal use.  Any unauthorized use of any Content from InfraDrone Products may violate copyright laws, trademark laws, privacy laws and/or other laws or regulations.',
+        
+      ]
+    },
+    {
+      title: 'Accuracy Of Your Information',
+      text: [
+        'You will access InfraDrone Products with your User ID, password, and other credentials and you will not impersonate any person or entity, or falsely state or otherwise misrepresent your identity or any information you submit to InfraDrone Products.  You agree to provide true, accurate, current and complete information requested by InfraDrone.'
+      ]
+    },
+    {
+      title: 'Password Obligations',
+      text: [
+        'You agree to accept responsibility for all activities that occur under your User ID and password.  You are responsible for maintaining the confidentiality of your password, and for restricting access so that others may not access your InfraDrone Products under your User ID and password. You agree to immediately notify InfraDrone of any unauthorized use of your User ID or password or any other breach of security which may affect your InfraDrone Products.  We shall not be liable for any loss or damage arising from your negligence or failure to comply with any of the foregoing obligations.'
+      ]
+    },
+    {
+      title: 'Disclaimer Of Warranties',
+      text: [
+        'You understand and agree that InfraDrone Products and all Content on it is provided on as “As Is,” “As Available” basis and without warranties of any kind, either express of implied.  InfraDrone expressly disclaims all warranties, representations, and undertakings of any kind, whether express or implied, including without limitation, any warranties of merchantability, fitness for a particular purpose, and non-infringement.'
+      ]
+    },
+    {
+      title: 'Limitation Of Liability',
+      text: [
+        'You agree that InfraDrone is not liable to you for any loss or damages of any kind, including, any direct, indirect, special, incidental, exemplary, punitive, consequential or economic damages, whether based in tort, contract, strict liability, or otherwise, including any loss or damages arising out of or in any way connected with or relating to your use of InfraDrone Products, or with the delay or inability to use InfraDrone Products, or for any information, content, products, and/or services obtained through InfraDrone Products.'
+      ]
+    },
+    {
+      title: 'Payment For InfraDrone Products',
+      text: [
+        'You understand that use of the InfraDrone Products may result in charges to you for the services or goods you receive ("Charges"). InfraDrone LLC will receive and/or enable your payment of the applicable Charges for services or goods obtained through your use of the Services. Charges will be inclusive of applicable taxes where required by law. Charges may include other applicable fees, tolls, and/or surcharges.',
+        'Charges paid by you directly or through an escrow account are final and non-refundable, unless otherwise determined by InfraDrone LLC, upon request. ',
+        'As between you and InfraDrone LLC, InfraDrone LLC reserves the right to establish, remove and/or revise Charges for any or all services or goods obtained through the use of InfraDrone Products at any time in InfraDrone LLCs sole discretion. Further, you acknowledge and agree that Charges may increase substantially during times of high demand. InfraDrone LLC may use reasonable efforts to inform you of Charges that may apply, provided that you will be responsible for Charges incurred regardless of your awareness of such Charges or the amounts thereof. InfraDrone LLC may from time to time provide promotional offers and discounts that may result in different amounts charged for the same or similar services or goods obtained through the use of the InfraDrone Products, and you agree that such promotional offers and discounts, unless also made available to you, shall have no bearing on your use of the InfraDrone Products or the Charges applied to you. InfraDrone LLC may use the proceeds of any Charges for any purpose, subject to any payment obligations it has agreed to with any Third Party Providers or other third parties.',
+        'In certain cases, with respect to Third Party Providers, Charges you incur will be owed directly to Third Party Providers with a transaction fee collected by InfraDrone LLC, and InfraDrone LLC will collect payment of those charges from you, on the Third Party Provider’s behalf as their limited payment collection agent, and payment of the Charges shall be considered the same as payment made directly by you to the Third Party Provider.  ',
+        '',
+      ]
+    },
+    {
+      title: 'Modification Or Suspension Of InfraDrone Product Access',
+      text: [
+        'InfraDrone reserves the right, in its sole discretion, to modify or discontinue InfraDrone Products, or any portion of InfraDrone Products, without notice to you or any third party.  We also may, in our sole discretion, refuse or restrict anyone from access to InfraDrone Products or any portion of InfraDrone Products.',
+      ]
+    },
+    {
+      title: 'Violation Of Terms Of Use',
+      text: [
+        'Any violation of these Terms of Use may result in restriction or termination of your access to all or part of InfraDrone Products and may be referred to law enforcement authorities.  No waiver of any of these Terms of Use shall be of any force or effect unless made in writing and signed by an authorized representative of InfraDrone.'
+      ]
+    },
+    {
+      title: 'Governing Law',
+      text: [
+        'These Terms of Use shall be governed by the laws of the State of Iowa, without giving effect to conflicts of law analysis, the United States of America and international copyright laws. You agree to submit to the jurisdiction of the American Arbitration Association (AAA), and agree to binding arbitration before the AAA in Des Moines, Iowa, for any and all disputes, claims and actions arising out of or in connection with the information provided to you herein.'
+      ]
+    },
+  ]
+
++section({ title: 'Terms<br>of use', className: 'article-column' })
+  .article-column__wrapper
+    each item in casesData 
+      .article-column__item
+        .article-column__item__title
+          .title_dark.title!=item.title
+
+        .article-column__item__content
+          .article-column__item__text
+            each i in item.text
+              p!=i
+
+          - if (item.img)
+            .article-column__item__image
+              img(src=item.img)

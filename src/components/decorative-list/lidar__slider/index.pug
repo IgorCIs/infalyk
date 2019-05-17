@@ -34,5 +34,5 @@ include ./../../../layouts/section.pug
               .decorative-list__slider__decorate__item.item_yellow
               .decorative-list__slider__decorate__item.item_red
               .decorative-list__slider__decorate__item.item_green
-              .decorative-list__slider__decorate__item.item_text http//infalytiks.com
-            img(src=require(`./assets/images/lidar/${i}.jpg`), alt="")
+              .decorative-list__slider__decorate__item.item_text!=`${i % 2 === 0 ?  'After' : 'Before' } Processing`
+            img(src=require(`./assets/images/lidar/${i}.jpg`), alt="") 
