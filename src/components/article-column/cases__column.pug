@@ -62,7 +62,7 @@ include ./../../layouts/section.pug
             each i in item.text
               p!=i
 
-          .article-column__item__image(data-animation='fromOpacity')
+          .article-column__item__image(data-animation='articleTitleRight')
             -if(item.frame)
               div!=item.frame
             -else

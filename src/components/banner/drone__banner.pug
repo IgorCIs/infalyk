@@ -15,7 +15,7 @@ include ./../../layouts/section.pug
         .banner__descr__list
           each item in ['Cross-Platform Application', 'Google Play Store – Apple Store – Web', 'Professional Drone Pilot Network', 'Basic – PRO – Enterprise Versions Available', 'Interface with <span href="#" class="bold-line"> InfraVIEU </span>']
             span
-              a(href='#').arrow-link.banner__descr__item!=item
+              .arrow-link.banner__descr__item!=item
 
       .banner__button(data-animation='fromOpacity' data-delay='700')
         include ./../app-links/drone

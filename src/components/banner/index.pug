@@ -1,11 +1,34 @@
 include ./../../layouts/section.pug
 
 - 
-  const animation = '<div id="home-banner"> <div class="banner-tip"> </div> </div>'
+  const animation = '<div id="home-banner" data-page="main">  </div>'
 
-+section({ className: 'homepage__banner banner', bg: animation, nolines: true })
++section({ className: 'homepage__banner bpe banner', bg: animation, nolines: true })
   .banner__wrapper
     .banner__title(data-animation='fadeDown') Complex <span class='grey-text'>Data</span><br> Analytics and <br> Automation Company
     .banner__descr(data-animation='fromOpacity') We collect, analyze and<br> visualize your data!
     .banner__button(data-animation='fromOpacity' data-delay='300')
       a(href="./utilize.html").btn.btn_color_white learn more
+
+
+  .home-banner-toggler.home-banner-toggler_1(data-trigger-target='tt' data-trigger-self='tt')
+    .home-banner-toggler__icon
+      include ./../../assets/images/Image-Base2d.svg
+
+    .home-banner-toggler__content Machine Learning & AI for complex multi-spectral & multi-dimensional data
+  
+  .home-banner-toggler.home-banner-toggler_2(data-trigger-target='tt2' data-trigger-self='tt2')
+    .home-banner-toggler__icon
+      .icon-lidar_icon
+    .home-banner-toggler__content Our custom developed approaches bring quality and consistency to your analysis
+  
+  .home-banner-toggler.home-banner-toggler_3(data-trigger-target='tt3' data-trigger-self='tt3')
+    .home-banner-toggler__icon
+      include ./../../assets/images/drone_icon.svg
+
+    .home-banner-toggler__content We collect process, analyze and visualize data from multiple sources
+  
+  .home-banner-toggler.home-banner-toggler_4(data-trigger-target='tt4' data-trigger-self='tt4')
+    .home-banner-toggler__icon
+        include ./../../assets/images/image-based_icon.svg
+    .home-banner-toggler__content Visual HD, Thermal and LiDAR Data Analytics

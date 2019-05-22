@@ -88,13 +88,14 @@ const initNode = (node, animation) => {
   }, animations[animation][0]))
 }
 
-const animateNode = (node, animation, instant = false, delay = 0) => {
+const animateNode = (node, animation, instant = false, delay = 0, duration = 1000) => {
   animations[animation].forEach((an, i) => {
     if (i > 0 || instant) {
       anime(Object.assign({
         targets: node,
         delay: delay,
         easing: 'easeOutQuint',
+        duration
       }, an))
     } 
   })
@@ -107,7 +108,7 @@ export default () => {
   elementsForAnimation.forEach(element => {
     if (ANIMATE_ENABLED) {
       !element.dataset.instant && initNode(element, element.dataset.animation)
-      appear(element, () => animateNode(element, element.dataset.animation, element.dataset.instant, element.dataset.delay), {bottom: -150, left: 100, right: 100})
+      appear(element, () => animateNode(element, element.dataset.animation, element.dataset.instant, element.dataset.delay, element.dataset.duration), {bottom: -150, left: 100, right: 100})
     } 
   });
 

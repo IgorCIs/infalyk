@@ -11,7 +11,7 @@ export default [
         }
     },
     {
-        test: /\.(png|gif|svg|jpe?g)$/i,
+        test: /\.(png|gif|svg|jpe?g|ico|ply)$/i,
         use: [
             {
                 loader: 'url-loader',

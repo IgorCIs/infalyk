@@ -13,13 +13,22 @@ import AnimateNode from './assets/scripts/animateNode';
 import Loader from './assets/scripts/loader';
 import Cocoen from 'cocoen'
 import HomepageDataSource from './components/decorative-list/homepage__data-source'
+import LidarViewer from './components/banner/LidarViewer';
+const isLidar = document.querySelector('#lidar-viewer')
+
 
 document.addEventListener("DOMContentLoaded", () => {
   SameHeight()
   DronePilotSlider()
+  LidarViewer(() => {
+    AnimateNode() 
+    Loader()
+  })
+  if(!isLidar) {
+    Loader()
+    AnimateNode() 
+  }
   DroneClientSlider()
-  Loader()
-  AnimateNode()
   Trigger()
   HomepageSlider()
   FeaturesSlider()

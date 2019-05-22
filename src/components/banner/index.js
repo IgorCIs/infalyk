@@ -1,22 +1,41 @@
 import * as THREE from 'three'
 import OrbitControls from 'three-orbitcontrols'
 import TrackBall from 'three-trackballcontrols'
+import CloudLabel, { getDomPosition } from './CloudLabel'
 
 let container = document.getElementById('home-banner');
+let camera
 
-// const sphere = new THREE.Mesh( new THREE.SphereGeometry( 5, 32, 32 ), new THREE.MeshBasicMaterial( {color: 0x000000 } ) );
+const pointsConfig = [
+  {
+    pointToCopy: 2475,
+    pointToCopyPosition: null,
+    label: new CloudLabel(document.querySelector('.home-banner-toggler_1')),
+  },
+  {
+    pointToCopy: 2485,
+    pointToCopyPosition: null,
+    label: new CloudLabel(document.querySelector('.home-banner-toggler_2')),
+  },
+  {
+    pointToCopy: 1455,
+    pointToCopyPosition: null,
+    label: new CloudLabel(document.querySelector('.home-banner-toggler_3')),
+  },
+  {
+    pointToCopy: 2065,
+    pointToCopyPosition: null,
+    label: new CloudLabel(document.querySelector('.home-banner-toggler_4')),
+  },
+]
+
 let controls, controls2
 
-export default !container ? f=>f : () => {
+export default !container ? f=>f : function BannerCloud() {
   let SEPARATION = 50, AMOUNTX = 100, AMOUNTY = 100;
   let count = 0;
-  let mouseX = 0, mouseY = 0;
   
-  let windowHalfX = container.offsetWidth / 2;
-  let windowHalfY = container.offsetHeight / 2;
-
-
-  let camera = new THREE.PerspectiveCamera( 75, container.offsetWidth / container.offsetHeight, 1, 10000 );
+  camera = new THREE.PerspectiveCamera( 75, container.offsetWidth / container.offsetHeight, 1, 10000 );
   
   let scene = new THREE.Scene();
   let renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
@@ -29,11 +48,6 @@ export default !container ? f=>f : () => {
     camera.position.x = -2315.6468128168212;
     camera.position.y = 802.6070010631422;
     camera.position.z  = 1121.3402231101422;
-  }
-
-
-  window.pos = () => {
-    console.log(camera.position)
   }
 
   let particles;
@@ -54,6 +68,20 @@ export default !container ? f=>f : () => {
         scales[ j ] = 1;
         i += 3;
         j ++;
+        
+        if(container.dataset.page === 'main') { 
+          pointsConfig.forEach(config => {
+            if(config.pointToCopy === j) {
+              const x = positions[i - 3],
+                    y = positions[i - 2],
+                    z = positions[i - 1]
+
+              config.label.updatePoint2Position({ x, y, z })
+              config.label.updatePoint1Position({ x, y, z })
+              config.label.updatePoint3Position({ x, y, z }) 
+            }
+          })
+        }
       }
     }
 
@@ -120,16 +148,24 @@ export default !container ? f=>f : () => {
     
     scene.add( particles );
 
+    if(container.dataset.page === 'main')  pointsConfig.forEach((point, i) => {
+      scene.add(point.label.point1)
+      scene.add(point.label.point2)
+      scene.add(point.label.line)
+
+      
+      container.appendChild(point.label.element1)
+      container.appendChild(point.label.element2)
+    })
+
     renderer.setPixelRatio( container.devicePixelRatio );
     renderer.setSize( container.offsetWidth, container.offsetHeight );
     container.appendChild( renderer.domElement );
     
-    container.addEventListener( 'resize', onWindowResize, false );
+    window.addEventListener( 'resize', onWindowResize, false );
   }
   
   const onWindowResize = () => {
-    windowHalfX = container.offsetWidth / 2;
-    windowHalfY = container.offsetHeight / 2;
     camera.aspect = container.offsetWidth / container.offsetHeight;
     camera.updateProjectionMatrix();
     renderer.setSize( container.offsetWidth, container.offsetHeight );
@@ -148,8 +184,6 @@ export default !container ? f=>f : () => {
     let i = 0, j = 0, ph = 30;
     let timeM = 0.2, timeN = 0.4;
 
-    let spherePosition
-
     for ( let ix = 0; ix < AMOUNTX; ix ++ ) {
       for ( let iy = 0; iy < AMOUNTY; iy ++ ) {
         positions[ i + 1 ] = ( Math.sin( ( ix + count ) *  timeM ) * ph ) +
@@ -157,31 +191,33 @@ export default !container ? f=>f : () => {
         scales[ j ] = ( Math.sin( ( ix + count ) * 0.3 ) + 1 ) * 8 +
                 ( Math.sin( ( iy + count ) * 0.5 ) + 1 ) * 8;
 
-                // if(positions[i] > 400 && positions[i] < 1000 && positions[i + 2 ] > 760 && positions[i + 2 ] < 751  ) {
-                //   positions[i +1] = 70;
-
-                  
+                // if(positions[i] > 100 && positions[i] < 1000 ) {
+                //   positions[i +1] = 70
                 // }
         i += 3;
         j ++;
-      }
 
+        if(container.dataset.page === 'main') pointsConfig.forEach(config => {
+          if(config.pointToCopy === j) {
+            const x = positions[i - 3],
+            y = positions[i - 3 + 1],
+            z = positions[i - 3 + 2]
+
+
+            
+            const positionOfPoint1 = getDomPosition(camera, container, config.label.point1)
+            const positionOfPoint2 = getDomPosition(camera, container, config.label.point2)
+            
+
+            config.label.updatePoint2Position({ x, y, z })
+            config.label.updateElement1Position({ x: positionOfPoint1.x, y: positionOfPoint1.y })
+            config.label.updateElement2Position({ x:  positionOfPoint2.x, y:  positionOfPoint2.y })
+            config.label.updateLine()
+          }
+        })
+      }
     }   
 
-    // for ( let ix = 0; ix < AMOUNTX; ix ++ ) {
-    //   for ( let iy = 0; iy < AMOUNTY; iy ++ ) {
-    //     positions[ i + 1 ] = ( Math.sin( ( positions[ i ] + count ) *  timeM ) * ph ) +
-    //             ( Math.sin( ( positions[ i + 2 ] + count ) * timeN ) * ph );
-    //     scales[ j ] = ( Math.sin( ( ix + count ) * 0.3 ) + 1 ) * 8 +
-    //             ( Math.sin( ( iy + count ) * 0.5 ) + 1 ) * 8;
-    //     i += 3;
-    //     j ++;
-    //   }
-    // }
-
-    // sphere.position.y = ( Math.sin( ( sphere.position.x + count ) * timeM ) * ph ) + ( Math.sin( ( sphere.position.z + count ) * timeN ) * ph );
-    
-    
     particles.geometry.attributes.position.needsUpdate = true;
     particles.geometry.attributes.scale.needsUpdate = true;
     count += 0.1;

@@ -39,10 +39,12 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.2.7",
+    "@pix4d/three-potree-loader": "0.0.8",
     "animate.css": "^3.7.0",
     "animejs": "^3.0.1",
     "aos": "^2.3.4",
     "cocoen": "^2.0.5",
+    "copy-webpack-plugin": "^3.0.1",
     "in-viewport": "^3.6.0",
     "jquery": "^3.4.0",
     "normalize.css": "^8.0.1",
@@ -53,6 +55,7 @@
     "swiper": "^4.5.0",
     "three": "^0.104.0",
     "three-orbitcontrols": "^2.102.1",
+    "three-ply-loader": "^1.0.0",
     "three-trackballcontrols": "0.0.7",
     "wowjs": "^1.1.3"
   },
