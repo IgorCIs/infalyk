@@ -36,8 +36,8 @@
           .column__subscription__title 
             p If you would like to receive updates, sign up below
 
-          .column__subscription__input.wrapper
-            input(type="text" placeholder="Email Address")
+          form#footer-form.column__subscription__input.wrapper
+            input(type="email" placeholder="Email Address")
             .column__subscription__button
               .btn.btn_color_grey send
 
@@ -47,4 +47,4 @@
         .column__disclaimer.wrapper
           each item in disclaimer
             .column__disclaimer__item
-              a(href=item[1])=item[0]
+              a(href=item[1])=item[0] 

@@ -3,7 +3,14 @@ include ./../../layouts/section.pug
 - 
   const animation = '<div id="cases-banner"> </div>'
 
-+section({ nolines: true, className: 'cases__banner banner', bg: animation })
-  .banner__wrapper
-    .banner__title Machine Learning <br> Case Studies
-    .banner__descr We collect, analyze and <br> visualize your data!
++section({ nolines: true, container: "left", className: 'section_grey cases__banner relevant__banner' })
+  .lidar__banner__wrapper.wrapper
+    .lidar__banner__text
+      .lidar__banner__title(style='padding-bottom: 30px') 
+        h1 Machine Learning <br> Case Studies
+
+      .lidar__banner__subtitle
+        p We collect, analyze and <br> visualize your data!
+
+    .lidar__banner__image#lines-animation
+      include ./../../assets/images/cases/bg.svg

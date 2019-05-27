@@ -3,11 +3,21 @@
   height: 100vh 
   margin-top: -1px
   max-height: 600px
-  border-top: 1px solid $border-color
+  canvas
+    border-top: 2px solid $background-color_light
+    border-bottom: 1px solid $background-color_light
 
 .relevant__banner
   .lidar__banner__wrapper
     justify-content: space-between  
+    padding-top: 100px
+    svg
+      max-width: 750px
+
+  .lidar__banner__image
+    align-items: flex-end
+    display: flex
+    flex-direction: column
 
 .lidar
   background: $dark
@@ -19,14 +29,16 @@
   &__wrapper
     padding-top: 150px
     justify-content: center
-    // margin-left: 145px
 
   &__text
+    z-index: 5
     justify-content: center
     display: flex
     flex-direction: column
     position: relative
 
+  &__image
+    z-index: 4
 
   &__title
     margin-top: 20px

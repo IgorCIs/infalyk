@@ -14,20 +14,21 @@ import Loader from './assets/scripts/loader';
 import Cocoen from 'cocoen'
 import HomepageDataSource from './components/decorative-list/homepage__data-source'
 import LidarViewer from './components/banner/LidarViewer';
+import Footer from './components/footer';
+import AnimateBuilding from './assets/scripts/animateBuilding';
+import CasesBanner from './components/banner/casesBanner';
 const isLidar = document.querySelector('#lidar-viewer')
-
+const isCocoen = document.querySelector('.cocoen')
 
 document.addEventListener("DOMContentLoaded", () => {
   SameHeight()
+  AnimateBuilding()
+  CasesBanner()
   DronePilotSlider()
-  LidarViewer(() => {
-    AnimateNode() 
-    Loader()
-  })
-  if(!isLidar) {
-    Loader()
-    AnimateNode() 
-  }
+  Loader()
+  AnimateNode() 
+  LidarViewer()
+  Footer()
   DroneClientSlider()
   Trigger()
   HomepageSlider()
@@ -36,6 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
   Header()
   HomepageBanner()
   HomepageDataSource()
-  if(document.querySelector('.cocoen')) new Cocoen(document.querySelector('.cocoen'))
+  if(isCocoen) new Cocoen(isCocoen)
   new Popups()
 })

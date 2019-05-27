@@ -1,11 +1,12 @@
 import * as THREE from 'three'
 import OrbitControlls from 'three-orbitcontrols'
 import PlyLoader from 'three-ply-loader'
+import PCDLoader from './../../assets/scripts/lib/pcdLoader'
 PlyLoader(THREE)
 
 const container = document.getElementById('lidar-viewer')
 
-export default !container ? f=>f : (onLoad) => {
+export default !container ? f=>f : (onLoad=f=>f) => {
   const scene = new THREE.Scene()
   const camera = new THREE.PerspectiveCamera(60, container.offsetWidth / container.offsetHeight , 0.1, 1000 );
   const renderer = new THREE.WebGLRenderer()
@@ -15,7 +16,6 @@ export default !container ? f=>f : (onLoad) => {
   camera.position.set(0, 0, 20)
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setClearColor('#ffffff')     
-
 
   const ambientLight = new THREE.AmbientLight('#EEEEEE')
   const controls = new OrbitControlls(camera, container)
@@ -29,12 +29,27 @@ export default !container ? f=>f : (onLoad) => {
   scene.add(ambientLight)
   
   const loader = new THREE.PLYLoader()
-
+  const pcdLoader = new PCDLoader()
+  
   const loadModel = () => {    
 
-    // const geometry = JSON.parse(require('./model.json').data).data
-
-    loader.load(('./models/model.ply'), (geometry) => {
+    fetch('./models/model.json', {method: 'GET'})
+      .then(res => res.json())
+      .then(res => JSON.parse(res.data).data)
+      .then(geometry => {
+        // geometry.attributes.position.array = geometry.attributes.position.array.map(item => item.toFixed(4))
+    //     loader.load(('./models/model.ply'), (geometry) => {
+    //       const type = 'application/json';
+    //  const name = 'dataFile_' + Date.now();
+     
+    //  const __a = document.createElement( "a" );
+    //      __a.href = URL.createObjectURL( new Blob(
+    //          [ JSON.stringify( { data: geometry }, null, 2 ) ], {
+    //              type: type
+    //          } ) );
+    //      __a.download = name;
+    //      __a.click();
+    //     })
       let attr = geometry.attributes,
           ob = new THREE.Object3D(),
           _el = attr.position.array,
@@ -127,8 +142,6 @@ export default !container ? f=>f : (onLoad) => {
         scene.add(ob)
         ob.rotation.x = Math.PI * -0.5  
         ob.position.y = -20
-
-        setTimeout(onLoad, 500);
     })
   }
   

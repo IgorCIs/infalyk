@@ -101,14 +101,12 @@ const animateNode = (node, animation, instant = false, delay = 0, duration = 100
   })
 }
 
-
-
 export default () => {
   const elementsForAnimation = [...document.querySelectorAll('[data-animation]')]
   elementsForAnimation.forEach(element => {
     if (ANIMATE_ENABLED) {
       !element.dataset.instant && initNode(element, element.dataset.animation)
-      appear(element, () => animateNode(element, element.dataset.animation, element.dataset.instant, element.dataset.delay, element.dataset.duration), {bottom: -150, left: 100, right: 100})
+      appear(element, () => animateNode(element, element.dataset.animation, element.dataset.instant, element.dataset.delay, element.dataset.duration), {bottom: -150, left: 100, right: 100}, element.dataset.bottom)
     } 
   });
 

@@ -41,10 +41,26 @@
         line-height: 20px
 
       &__input
+        &.fail
+          position: relative
+          input
+            color: red
+
+
+          +after
+            content: '*For most of us, the idea of astronomy is something wrong.'
+            font-size: 10px
+            padding-left: 24px
+            padding-top: 10px
+            position: absolute
+            bottom: -20px
+            color: red
+
         margin-top: 5px
         input
           background-color: #F1F2F4
           padding: 15px 24px
+          font-weight: 600
           border: unset
           border-radius: 8px
           outline: unset
@@ -55,6 +71,10 @@
           &::placeholder
             font-weight: 500
             color: #31364F
+
+          &:focus
+            &::placeholder
+              opacity: 0
 
         
       &__button

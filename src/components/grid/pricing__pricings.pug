@@ -42,7 +42,7 @@ include ./../../layouts/section.pug
     - for(let i = 0; i < data.length; i++)
       - const item = data[i] 
       - const alpha = i < 3 ? i : i - 3
-        .grid-section__item(data-animation='fromOpacity' data-delay=`${alpha * 300}`)
+        .grid-section__item(data-animation='fromOpacity' data-bottom='true' data-delay=`${alpha * 300}`)
           .grid-section__item__wrapper
             .grid-section__item__header-icon
               div(class=item.icon)
