@@ -1,3 +1,4 @@
+import $ from 'jquery'
 const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 const form = document.querySelector('#footer-form')
 
@@ -8,7 +9,7 @@ headers.append("Origin", "localhost");
 
 
 const requestConfig = {
-  link: "https://api.allorigins.win/get?url=https://us16.api.mailchimp.com/3.0/lists/ec19d0aa44/members?apikey=60318c2da9e685b179f84c2800727b0d&c=?",
+  link: "https://us16.api.mailchimp.com/3.0/lists/ec19d0aa44/members?apikey=60318c2da9e685b179f84c2800727b0d&c=?",
   options: {
     headers,
     mode: 'no-cors',
@@ -22,24 +23,35 @@ export default !form ? f=>f : () => {
   const button = form.querySelector('.btn')
 
   const wrong = () => {
-    form.classList.add('fail')
+    form.classList.remove('fail')
+    form.classList.add('wrong')
   }
 
   const done = () => {
+    form.classList.remove('wrong')
     form.classList.remove('fail')
     form.classList.add('done')
   }
   
   const fail = () => {
-    
+    form.classList.remove('wrong')
+    form.classList.remove('done')
+    form.classList.add('fail')
+  }
+  
+  const sending = () => {
+    form.classList.remove('wrong')
+    form.classList.remove('fail')
   }
   
   const send = () => {
-
-
-    // fetch(requestConfig.link, requestConfig.options)
-    //   .then(res => res)
-    //   .then(res => console.log(res))
+    sending()
+    $.post('./stat/addMail.php', {
+      email: input.value
+    })
+    .catch(() => fail())
+    .fail(() => fail())
+    .then(() => done())
 
     return true
   }
