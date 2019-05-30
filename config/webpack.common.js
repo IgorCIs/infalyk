@@ -16,7 +16,7 @@ export default {
         rules: loaders
     },
     plugins: [
-        new CopyWebpackPlugin([ { from: SRC + '/models', to: 'models' } ]),
+        new CopyWebpackPlugin([ { from: SRC + '/stat', to: 'stat' } ]),
         new webpack.NoEmitOnErrorsPlugin(),
         ETPStyles,
         ...pug

@@ -4,7 +4,8 @@
   width: 100%
   z-index: 20
   left: 0
-  top: -90px
+  top: 0
+  transform: translateY(-90px)
   background: $grey
   transition: all .6s
 
@@ -14,7 +15,7 @@
     left: unset
 
   &.sticky
-    top: 0
+    transform: translateY(0)
 
   &__logo
     display: flex

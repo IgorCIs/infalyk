@@ -41,11 +41,11 @@ include ./../../layouts/section.pug
 +section({title: 'PRIMARY<br>APPLICATIONS', className: 'grid-section relevant__primary pricing__pricings'})
   .grid-section__wrapper
     each item in data
-      .grid-section__item
+      .grid-section__item(data-animation='fadeDownMini')
         .grid-section__item__wrapper
           .grid-section__item__header-icon
             div(class=item.icon)
-            .grid-section__item__header-title(data-same='relevant-grid-title')=item.headerTitle
+            .grid-section__item__header-title(data-animation='articleTitleLeft' data-same='relevant-grid-title')=item.headerTitle
           .grid-section__item__text
             .list.list_dark
               each i in item.list

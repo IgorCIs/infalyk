@@ -33,7 +33,7 @@ include ./../../layouts/section.pug
   .article-column__wrapper
     .article-column__item(class=`${item.color ? item.color === 'white' ? 'article-column__item_white' : '' : ''}`)
       .article-column__item__title
-        .title_dark.title!=item.title
+        .title_dark.title(data-animation='articleTitleLeft')!=item.title
         .decorative-shape.decorative-shape_dark
             include ./../../assets/images/shape.svg
 
@@ -41,25 +41,25 @@ include ./../../layouts/section.pug
       .article-column__item__content
         .article-column__item__text
           each i in item.text
-            p!=i
+            p(data-animation='fromOpacity')!=i
 
-        .article-column__item__image
+        .article-column__item__image(data-animation='articleTitleRight')
           img(src=item.img)
 
 +section({ title: 'primary<br>applications', className: 'article-column_white relevant__primary-app cases__column  article-column' })
   .article-column__wrapper
     .article-column__item
       .article-column__item__title
-        .title_dark.title!=item2.title
+        .title_dark.title(data-animation='articleTitleLeft')!=item2.title
         .decorative-shape.decorative-shape_dark
           include ./../../assets/images/shape.svg
 
       .article-column__item__content
         .article-column__item__text
           each i in item2.text
-            p!=i
+            p(data-animation='fromOpacity')!=i
 
-        .article-column__item__image
+        .article-column__item__image(data-animation='articleTitleRight')
           img(src=item2.img)
 
           .decorative-shape.decorative-shape_dark

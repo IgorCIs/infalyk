@@ -22,16 +22,16 @@ include ./../../layouts/section.pug
   .article-column__wrapper
     .article-column__item
       .article-column__item__title
-        .title_dark.title!=relevantConstrData.title
+        .title_dark.title(data-animation='articleTitleLeft')!=relevantConstrData.title
 
       .article-column__item__content
         .article-column__item__text
           each i in relevantConstrData.text
-            p!=i
+            p(data-animation='fromOpacity')!=i
 
-        .article-column__item__image
+        .article-column__item__image(data-animation='articleTitleRight')
           img(src=relevantConstrData.img)
 
         .article-column__item__text
           each i in relevantConstrData.text2
-            p!=i
+            p(data-animation='fromOpacity')!=i

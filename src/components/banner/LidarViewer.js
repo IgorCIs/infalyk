@@ -6,6 +6,8 @@ PlyLoader(THREE)
 
 const container = document.getElementById('lidar-viewer')
 
+const hideLoader = () => document.querySelector('.lidar-preloader').style.display = 'none'
+
 export default !container ? f=>f : (onLoad=f=>f) => {
   const scene = new THREE.Scene()
   const camera = new THREE.PerspectiveCamera(60, container.offsetWidth / container.offsetHeight , 0.1, 1000 );
@@ -30,17 +32,23 @@ export default !container ? f=>f : (onLoad=f=>f) => {
   
   const loader = new THREE.PLYLoader()
   const pcdLoader = new PCDLoader()
+
+  window.getCameraPosition = () => controls
+  camera.position.set(115.84813073060688, 43.88831285756288, -14.16713351350601)
   
   const loadModel = () => {    
 
-    fetch('./models/model.json', {method: 'GET'})
+    fetch('./stat/newmodel.json', {method: 'GET'})
       .then(res => res.json())
-      .then(res => JSON.parse(res.data).data)
+      .then( res => res.data.data)
+      // .then(res => JSON.parse(res.data).data)
       .then(geometry => {
-        // geometry.attributes.position.array = geometry.attributes.position.array.map(item => item.toFixed(4))
-    //     loader.load(('./models/model.ply'), (geometry) => {
+        // console.log(geometry)
+        // loader.load(('./static/webpointcloud_subsampledoctree10_ascii.ply'), (geometry) => {
+          
     //       const type = 'application/json';
     //  const name = 'dataFile_' + Date.now();
+    //  geometry.attributes.position.array = geometry.attributes.position.array.map(el => el.toFixed(4   ))
      
     //  const __a = document.createElement( "a" );
     //      __a.href = URL.createObjectURL( new Blob(
@@ -49,7 +57,7 @@ export default !container ? f=>f : (onLoad=f=>f) => {
     //          } ) );
     //      __a.download = name;
     //      __a.click();
-    //     })
+        
       let attr = geometry.attributes,
           ob = new THREE.Object3D(),
           _el = attr.position.array,
@@ -142,7 +150,9 @@ export default !container ? f=>f : (onLoad=f=>f) => {
         scene.add(ob)
         ob.rotation.x = Math.PI * -0.5  
         ob.position.y = -20
+        hideLoader()
     })
+    
   }
   
 

@@ -34,8 +34,8 @@ include ./../../layouts/section.pug
         .grid-section__item__wrapper
           .grid-section__item__header-icon
             div(class=item.icon)
-            .grid-section__item__header-title=item.headerTitle
+            .grid-section__item__header-title(data-delay=200 data-animation='fadeDownMini')=item.headerTitle
             
           .grid-section__item__text
             each i in item.text
-              p!=i
+              p(data-animation='fromOpacity' data-delay=200 )!=i
