@@ -2,17 +2,17 @@ const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[
 const form = document.querySelector('#footer-form')
 
 const headers = new Headers()
-// headers.append("Content-type", "application/json; charset=utf-8");
-// headers.append("Data-type", "jsonp");
-// headers.append("Access-Control-Allow-Origin", "*");
-// headers.append("Origin", "localhost");
+headers.append("Content-type", "application/json");
+headers.append("Access-Control-Allow-Origin", "*");
+headers.append("Origin", "localhost");
 
 
 const requestConfig = {
-  link: "https://us16.api.mailchimp.com/3.0/lists/ec19d0aa44/members?apikey=60318c2da9e685b179f84c2800727b0d&c=?",
+  link: "https://api.allorigins.win/get?url=https://us16.api.mailchimp.com/3.0/lists/ec19d0aa44/members?apikey=60318c2da9e685b179f84c2800727b0d&c=?",
   options: {
-    // headers,
-    // mode: 'cors'
+    headers,
+    mode: 'no-cors',
+    credentials: 'same-origin'
   }
 }
 
@@ -36,10 +36,10 @@ export default !form ? f=>f : () => {
   
   const send = () => {
 
-    console.log(input.value)  
-    fetch(requestConfig.link, requestConfig.options)
-      .then(res => res)
-      .then(res => console.log(res))
+
+    // fetch(requestConfig.link, requestConfig.options)
+    //   .then(res => res)
+    //   .then(res => console.log(res))
 
     return true
   }
