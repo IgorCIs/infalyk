@@ -54,7 +54,7 @@
     "scrollreveal": "^4.0.5",
     "slick-carousel": "^1.8.1",
     "swiper": "^4.5.0",
-    "three": "^0.104.0",
+    "three": "^0.125.0",
     "three-orbitcontrols": "^2.102.1",
     "three-ply-loader": "^1.0.0",
     "three-trackballcontrols": "0.0.7",
